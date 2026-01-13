@@ -1,2 +1,96 @@
-2026-01-12 22:54:31 - asyncio - ERROR - base_events.py:1758 - Task was destroyed but it is pending!
-task: <Task pending name='Task-10' coro=<WebSocketCommonProtocol.close_connection() running at /opt/anaconda3/envs/poly/lib/python3.10/site-packages/websockets/legacy/protocol.py:1337> wait_for=<Future pending cb=[shield.<locals>._outer_done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:864, Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:720, shield.<locals>._inner_done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:847]>
+2026-01-13 08:24:49 - simple_arb_bot - ERROR - simple_arb_bot.py:1192 - Fatal error details:
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_transports/default.py", line 69, in map_httpcore_exceptions
+    yield
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_transports/default.py", line 233, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+  File "/opt/anaconda3/envs/poly/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 49, in request
+    resp = _http_client.request(
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_client.py", line 827, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_client.py", line 1015, in _send_single_request
+    response = transport.handle_request(request)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_transports/default.py", line 232, in handle_request
+    with map_httpcore_exceptions():
+  File "/opt/anaconda3/envs/poly/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/httpx/_transports/default.py", line 86, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ayur/SynologyDrive/X-学习/Z-足球/Polymarket-trading-bot-15min-BTC/src/simple_arb_bot.py", line 1168, in main
+    bot = SimpleArbitrageBot(settings)
+  File "/Users/ayur/SynologyDrive/X-学习/Z-足球/Polymarket-trading-bot-15min-BTC/src/simple_arb_bot.py", line 160, in __init__
+    self.client = get_client(settings)
+  File "/Users/ayur/SynologyDrive/X-学习/Z-足球/Polymarket-trading-bot-15min-BTC/src/trading.py", line 46, in get_client
+    derived_creds = _cached_client.create_or_derive_api_creds()
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/py_clob_client/client.py", line 256, in create_or_derive_api_creds
+    return self.derive_api_key(nonce)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/py_clob_client/client.py", line 237, in derive_api_key
+    creds_raw = get(endpoint, headers=headers)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 73, in get
+    return request(endpoint, GET, headers, data)
+  File "/opt/anaconda3/envs/poly/lib/python3.10/site-packages/py_clob_client/http_helpers/helpers.py", line 65, in request
+    raise PolyApiException(error_msg="Request exception!")
+py_clob_client.exceptions.PolyApiException: PolyApiException[status_code=None, error_message=Request exception!]
+2026-01-13 08:30:29 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:30:29 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: Could not find BTC 15min market and no slug configured in .env
+2026-01-13 08:30:44 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=None, error_message=Request exception!]
+2026-01-13 08:30:55 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:30:55 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:31:31 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:31:31 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:31:56 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:31:57 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:32:13 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:32:24 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:32:24 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:32:34 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:32:34 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:32:46 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:32:46 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:32:56 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:32:56 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:33:11 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=None, error_message=Request exception!]
+2026-01-13 08:33:12 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:33:27 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:33:27 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:33:37 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:33:37 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:33:48 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:33:49 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:34:02 - simple_arb_bot - ERROR - simple_arb_bot.py:149 - Error searching for BTC 15min market: _ssl.c:1000: The handshake operation timed out
+2026-01-13 08:34:02 - simple_arb_bot - ERROR - simple_arb_bot.py:1030 - Error searching for new market: Could not find BTC 15min market and no slug configured in .env
+2026-01-13 08:34:13 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:34:14 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-13 08:45:19 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=None, error_message=Request exception!]

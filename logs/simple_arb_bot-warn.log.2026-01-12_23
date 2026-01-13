@@ -1,0 +1,35 @@
+2026-01-12 22:54:31 - asyncio - ERROR - base_events.py:1758 - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<WebSocketCommonProtocol.close_connection() running at /opt/anaconda3/envs/poly/lib/python3.10/site-packages/websockets/legacy/protocol.py:1337> wait_for=<Future pending cb=[shield.<locals>._outer_done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:864, Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:720, shield.<locals>._inner_done_callback() at /opt/anaconda3/envs/poly/lib/python3.10/asyncio/tasks.py:847]>
+2026-01-12 22:56:11 - simple_arb_bot - WARNING - simple_arb_bot.py:415 - UP order book looks inverted (best_ask=0.7700 < best_bid=0.7800); skipping scan
+2026-01-12 23:00:01 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:00:15 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:00:31 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:00:45 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:14:29 - simple_arb_bot - WARNING - simple_arb_bot.py:415 - UP order book looks inverted (best_ask=0.2200 < best_bid=0.2300); skipping scan
+2026-01-12 23:14:54 - simple_arb_bot - WARNING - simple_arb_bot.py:415 - UP order book looks inverted (best_ask=0.4800 < best_bid=0.4900); skipping scan
+2026-01-12 23:15:16 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:15:30 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:15:44 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:30:00 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:30:15 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:30:30 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:30:44 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:30:57 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:31:09 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:10 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:10 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:31:22 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:22 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:22 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:31:37 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:37 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:31:37 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:35:35 - simple_arb_bot - WARNING - simple_arb_bot.py:415 - UP order book looks inverted (best_ask=0.7600 < best_bid=0.7700); skipping scan
+2026-01-12 23:36:38 - simple_arb_bot - WARNING - simple_arb_bot.py:415 - UP order book looks inverted (best_ask=0.7900 < best_bid=0.8000); skipping scan
+2026-01-12 23:45:14 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:45:27 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:45:40 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:45:52 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book
+2026-01-12 23:46:05 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:46:05 - simple_arb_bot - ERROR - simple_arb_bot.py:381 - Error getting order book: PolyApiException[status_code=404, error_message={'error': 'No orderbook exists for the requested token id'}]
+2026-01-12 23:46:05 - simple_arb_bot - WARNING - simple_arb_bot.py:281 - No asks available in order book

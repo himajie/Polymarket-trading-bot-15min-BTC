@@ -31,6 +31,38 @@
       "filled": true,
       "market_result": null,
       "actual_profit": null
+    },
+    {
+      "timestamp": "2026-01-12T23:10:43.811431",
+      "market_slug": "btc-updown-15m-1768230000",
+      "price_up": 0.24,
+      "price_down": 0.65,
+      "total_cost": 0.89,
+      "order_size": 5.0,
+      "total_investment": 4.45,
+      "expected_payout": 5.0,
+      "expected_profit": 0.5499999999999998,
+      "profit_percentage": 12.359550561797748,
+      "order_ids": [],
+      "filled": true,
+      "market_result": null,
+      "actual_profit": null
+    },
+    {
+      "timestamp": "2026-01-12T23:32:32.561613",
+      "market_slug": "btc-updown-15m-1768231800",
+      "price_up": 0.44,
+      "price_down": 0.55,
+      "total_cost": 0.99,
+      "order_size": 5.0,
+      "total_investment": 4.95,
+      "expected_payout": 5.0,
+      "expected_profit": 0.04999999999999982,
+      "profit_percentage": 1.0101010101010066,
+      "order_ids": [],
+      "filled": true,
+      "market_result": null,
+      "actual_profit": null
     }
   ],
   "start_time": "2026-01-12T22:04:16.622514"
