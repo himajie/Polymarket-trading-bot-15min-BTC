@@ -44,18 +44,27 @@ class RunnerHelper:
                     'stream': 'ext://sys.stdout'
                 },
                 # file1单独的文件
-                'log_file': {
+                'info_file': {
                     'class': 'logging.handlers.TimedRotatingFileHandler',
-                    'filename': f'{log_dir}/{logName}.log',
+                    'filename': f'{log_dir}/{logName}-info.log',
                     'when': 'H',  # 按小时轮转
                     'interval': 1,  # 每1小时
                     'backupCount': 24,  # 保留24个文件（1天）
                     'formatter': 'file_format',
                     'level': 'INFO',
                 },
+                'warn_file': {
+                    'class': 'logging.handlers.TimedRotatingFileHandler',
+                    'filename': f'{log_dir}/{logName}-warn.log',
+                    'when': 'H',  # 按小时轮转
+                    'interval': 1,  # 每1小时
+                    'backupCount': 24,  # 保留24个文件（1天）
+                    'formatter': 'file_format',
+                    'level': 'WARNING',
+                },
                 'error_file': {
                     'class': 'logging.handlers.TimedRotatingFileHandler',
-                    'filename': f'{log_dir}/error.log',
+                    'filename': f'{log_dir}/{logName}-error.log',
                     'when': 'H',
                     'interval': 1,
                     'backupCount': 24,
@@ -66,7 +75,7 @@ class RunnerHelper:
             
             'loggers': {
                 f'{logName}': {
-                    'handlers': ['console', 'log_file', 'error_file'],
+                    'handlers': ['console', 'info_file','warn_file', 'error_file'],
                     'level': 'INFO',
                     'propagate': False  # 防止重复记录
                 },

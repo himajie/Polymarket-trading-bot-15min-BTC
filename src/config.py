@@ -45,6 +45,8 @@ class Settings:
     trade_log_file: str = os.getenv("TRADE_LOG_FILE", "trades.json")
     use_rich_output: bool = os.getenv("USE_RICH_OUTPUT", "true").lower() == "true"
 
+    reserve_balance: float = float(os.getenv("RESERVE_BALANCE", "50"))
+
 
 def load_settings() -> Settings:
     return Settings()

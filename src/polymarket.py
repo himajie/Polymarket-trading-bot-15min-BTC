@@ -13,9 +13,9 @@ import pandas as pd
 from .http_client import ConfigurableHTTPClient
 from .config import load_settings
 from .config_validator import ConfigValidator
-from .logger import setup_logging, print_header, print_success, print_error
 from threading import Thread
 from .runner_utils import RunnerHelper
+# from .logger import setup_logging
 from .trading import (
     get_client,
     place_order,
@@ -24,19 +24,22 @@ from .trading import (
     extract_order_id,
     wait_for_terminal_order,
     cancel_orders,
+    get_trades,
+    get_balance,
 )
 
 class SeekPolymarket():
     def __init__(self,logger,settings):
         self.settings = settings
         self.client = get_client(settings)
+        self.order_count=5
+
         self.logger=logger 
-        self.delay_seconds=2 * 24 * 60 * 60
         CLIENT_CONFIG = {
             'rate_limit_seconds': 0.05,
             'timeout': 30,
             'headers': {
-                'User-Agent': 'MyApp/1.0',
+                'User-Agent': 'MyApps/1.0',
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             }
@@ -45,7 +48,7 @@ class SeekPolymarket():
         self.http_client = ConfigurableHTTPClient.get_instance(CLIENT_CONFIG)
         settings = load_settings()
         # Setup logging with proper verbosity
-        setup_logging(verbose=settings.verbose, use_rich=settings.use_rich_output)
+        # setup_logging(verbose=settings.verbose, use_rich=settings.use_rich_output)
 
 
     def _levels_to_tuples(self, levels) -> list[tuple[float, float]]:
@@ -71,156 +74,153 @@ class SeekPolymarket():
         end_of_day=datetime.combine(future_date, time.max)
         return start_of_day.strftime("%Y-%m-%d"), end_of_day.strftime("%Y-%m-%d")
 
-
-    def get_order_book(self, token_id: str) -> dict:
-        try:
-            book = self.client.get_order_book(token_id=token_id)
-            # The result is an OrderBookSummary object, not a dict
-            bids = book.bids if hasattr(book, 'bids') and book.bids else []
-            asks = book.asks if hasattr(book, 'asks') and book.asks else []
-
-            bid_levels = self._levels_to_tuples(bids)
-            ask_levels = self._levels_to_tuples(asks)
-
-            best_bid = max((p for p, _ in bid_levels), default=None)
-            best_ask = min((p for p, _ in ask_levels), default=None)
-
-            bid_size = 0.0
-            if best_bid is not None:
-                for p, s in bid_levels:
-                    if p == best_bid:
-                        bid_size = s
-                        break
-
-            ask_size = 0.0
-            if best_ask is not None:
-                for p, s in ask_levels:
-                    if p == best_ask:
-                        ask_size = s
-                        break
-
-            spread = (best_ask - best_bid) if (best_bid is not None and best_ask is not None) else None
-
-            return {
-                "best_bid": best_bid,
-                "best_ask": best_ask,
-                "spread": spread,
-                "bid_size": bid_size,
-                "ask_size": ask_size,
-                "bids": bid_levels,
-                "asks": ask_levels,
-            }
-        except Exception as e:
-            logger.error(f"Error getting order book: {e}")
-            logger.exception("Full traceback:") 
-            return {}
-
-    # async def _fetch_order_books_parallel(self,yes_token_id,no_token_id) -> tuple[dict, dict]:
-    #     try:
-    #         up_task = asyncio.to_thread(self.get_order_book, yes_token_id)
-    #         down_task = asyncio.to_thread(self.get_order_book, no_token_id)
-    #         up_book, down_book = await asyncio.gather(up_task, down_task)
-    #         return up_book, down_book
-    #     except Exception as e:
-    #         logger.warning(f"Parallel order book fetch failed, falling back to sequential: {e}")
-    #         return self.get_order_book(self.yes_token_id), self.get_order_book(self.no_token_id)
-        
-    def get_multiple_price(self,tokens):
-        request_body=[{"token_id": token, "side": "SELL"} for token in tokens]
-        response = requests.post(
-            url="https://clob.polymarket.com/prices",
-            headers={"Content-Type": "application/json"},
-            json=request_body,
-            timeout=30  # 设置超时
-        )
-        response.raise_for_status() 
-        price_map = {token_id: round( 1.0/float(data['SELL']),4) for token_id, data in response.json().items()}
-        return price_map
+    
     
     def get_price(self,token):
-        params = {
-                        'token_id': token,
-                        'side': 'SELL'
-                    }
-        response = self.http_client.get('https://clob.polymarket.com/price',params=params)
-        response.raise_for_status() 
-        # price_map = {token_id: round( 1.0/float(data['SELL']),4) for token_id, data in response.json().items()}
-        return  float(response.json().get('price',None))
+        try:
+            params = {
+                            'token_id': token,
+                            'side': 'SELL'
+                        }
+            response = self.http_client.get('https://clob.polymarket.com/price',params=params)
+            response.raise_for_status() 
+            # price_map = {token_id: round( 1.0/float(data['SELL']),4) for token_id, data in response.json().items()}
+            return  float(response.json().get('price',None))
+        except Exception as e:
+            return float(0)
+            pass
 
     def reslove(self,dfs):
+        if dfs.empty:
+            return
 
         df = dfs.explode('events')
         current_time = pd.Timestamp.now(tz='UTC')
-        df['datetime'] = pd.to_datetime(df['endDate'], utc=True) 
-        time_diff = current_time - df['datetime']
-        # 结束时间大于3分钟且小于等于30分钟
-        mask = (time_diff > pd.Timedelta(minutes=3)) & (time_diff <= pd.Timedelta(minutes=300))
-        df = df[mask]
+
+
+        df['start_time'] = pd.to_datetime(df['startDate'], format='ISO8601', utc=True)
+        df['end_time'] = pd.to_datetime(df['endDate'], format='ISO8601', utc=True)
+
+
+        df['end_second'] = df['end_time'].apply(lambda x: (x-current_time).total_seconds())
+        df['market_second'] = df.apply(lambda row: (row['end_time'] - row['start_time']).total_seconds(), axis=1)
+        df = df[(df['end_second'] > 60) & (df['end_second'] < 3600) & (df['market_second'] > (60*60*6))] #6小时
         if df.empty:
-            self.logger.info("【无符合条件的数据】")   
-            return
+            self.logger.info("==>>无符合条件的数据")  
+            return 
+
+      
+        # time_diff = current_time - df['end_time']
+        # # 结束时间大于3分钟且小于等于30分钟
+        # mask = (time_diff > pd.Timedelta(minutes=3)) & (time_diff <= pd.Timedelta(minutes=60))
+        # df = df[mask]
+        # if df.empty:
+        #     self.logger.info("==>>无符合条件的数据")   
+        #     return
+
         
         # df[['token-yes', 'token-no']] = df['clobTokenIds'].apply(lambda x: pd.Series(x) if isinstance(x, list) else pd.Series([None, None]))
         df['clobTokens'] = df['clobTokenIds'].apply(lambda x: json.loads(x) if isinstance(x, str) else x)
 
-        df['event_slug'] = df['events'].apply(lambda x: x.get('slug') if isinstance(x, dict) else None)
-
-        # new_cols = pd.DataFrame(df['clobTokenIds'].tolist(), columns=['token-yes', 'token-no'])
-        # df[['token-yes', 'token-no']] = new_cols[['token-yes', 'token-no']]         
+        df['event_slug'] = df['events'].apply(lambda x: x.get('slug') if isinstance(x, dict) else None)      
         df[['token-yes', 'token-no']] = df['clobTokens'].apply(lambda x: pd.Series([x[0], x[1]] if isinstance(x, list) and len(x) >= 2 else [None, None]))
+
+        df = df.reset_index(drop=True)
+        df=df.loc[df.groupby('id')['end_time'].idxmax()]
+        df = df.reset_index(drop=True)
+
+        df = df.drop(df[df['sportsMarketType'].notna()].index)
+        # df = df.drop(['events', 'outcomes', 'clobTokenIds','conditionId','slug'], axis=1)
+        if df.empty:
+            return
+        # df = df.drop(['events', 'outcomes', 'clobTokenIds','conditionId','slug'], axis=1)
+        # print(df)
         for index, row in df.iterrows():
             # 查询数据库id订单是否存在
             id =row["id"]
             slug=row["event_slug"]
+            conditionId=row["conditionId"]
+
+
+            # trades= get_trades(self.settings) 
+           
 
             up_price=self.get_price(row["token-yes"])
             down_price=self.get_price(row["token-no"])
             if up_price is None or down_price is None:
+                self.logger.info(f"==>价格错误，跳过")   
                 continue
 
-
-            if up_price > 0.95 and up_price <= 0.99:
-                self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 UP最佳:{up_price},DOWN最佳:{down_price}")
-            elif down_price > 0.95 and down_price <= 0.99:
-                self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 UP最佳:{up_price},DOWN最佳:{down_price}")
+            if up_price > 0.92 and up_price <= 0.97:
+                self.logger.warning(f" "*20)  
+                self.logger.warning(f"---------------------------------------------------")  
+                self.logger.warning(f"=========>> 价格满足，准备下单!{slug}   << ============")  
+                self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 UP最佳:{up_price}, DOWN最佳:{down_price}")
+                self.play_order(conditionId,token_id=row["token-yes"],price=up_price,size=self.order_count)
+            elif down_price > 0.92 and down_price <= 0.97:
+                self.logger.warning(f" "*20)  
+                self.logger.warning(f"---------------------------------------------------")  
+                self.logger.warning(f"=========>> 价格满足，准备下单!{slug}   << ============")  
+                self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 DOWN最佳:{down_price}, UP最佳:{up_price}")
+                self.play_order(conditionId,token_id=row["token-no"],price=down_price,size=self.order_count)
             else:
+                self.logger.warning(f" "*20) 
+                self.logger.info(f"==>价格不满足，跳过!{slug}")   
                 continue    
-            
-            # up_book, down_book = await self._fetch_order_books_parallel(row["token-yes"], row["token-no"])
-            
-            # if up_book is None or down_book is None:
-            #     # self.logger.warning(f"无法获取市场ID: {id}的订单簿数据，跳过该市场。")
-            #     continue   
-            # if 'spread' not in up_book or 'spread' not in down_book:
-            #     continue    
-            # if up_book['spread'] is None or down_book['spread'] is None:
-            #     # self.logger.warning(f"市场ID: {id}的订单簿数据不完整，跳过该市场。")
-            #     continue    
-            # if up_book['spread'] > 0.03 or down_book['spread'] > 0.03:
-            #     # self.logger.info(f"市场ID: {id}的买卖差价过大，跳过该市场。spread_up:{up_book['spread']},spread_down:{down_book['spread']}")
-            #     continue    
+    def play_order(self,conditionId:str,token_id:str=None,price:float=None,size:float=None ):
+        trades= get_trades(self.settings,market=conditionId)     
+        if len(trades) != 0:
+            trade = trades[0]
+            self.logger.warning(f"==>> 交易记录存在：{trade['id']},{trade['side']},{trade['price']},{trade['size']},跳过下单")   
+            return
+        curr_balance =get_balance(self.settings)
 
-            
+        if curr_balance < self.settings.reserve_balance + self.settings.order_size:
+            self.logger.warning(f"===> ⚠️ 余额不足，当前余额: ${curr_balance:.6f},保留余额: ${self.settings.reserve_balance:.6f},跳过下单")
+            return
+        place_order(
+            self.settings,
+            side="BUY",
+            token_id=token_id,
+            price=float(price),
+            size=float(size),
+            tif="GTC",
+        )
+        self.logger.warning(f"===>提交订单:   {token_id}, ${price:.4f} x {size} shares")
 
-            # if up_book['best_ask'] > 0.95 and up_book['best_ask'] <= 0.99:
-            #     self.logger.warning(f"==>> 市场ID: {id}/{slug}  UP最佳:{up_book['best_ask']},DOWN最佳:{down_book['best_ask']},spread_up:{up_book['spread']},spread_down:{down_book['spread']},UP_size:{up_book['ask_size']},DOWN_size:{down_book['ask_size']}")
-            # elif down_book['best_ask'] > 0.95 and down_book['best_ask'] <= 0.99:
-            #     self.logger.warning(f"==>> 市场ID: {id}/{slug}  UP最佳:{up_book['best_ask']},DOWN最佳:{down_book['best_ask']},spread_up:{up_book['spread']},spread_down:{down_book['spread']},UP_size:{up_book['ask_size']},DOWN_size:{down_book['ask_size']}")
-            # else:
-            #     continue
-
-
-
-
-
-        
     def run(self):
+
+
+        # place_order(
+        #     self.settings,
+        #     side="BUY",
+        #     token_id='67907923640754422536549983884687639959795729031667929337463354290420556044100',
+        #     price=float(0.05),
+        #     size=float(5),
+        #     tif="FAK",
+        # )
+        # return
+
+        # place_order(
+        #     self.settings,
+        #     side="BUY",
+        #     token_id='104663890405767427718480543493833762398617970079292208022284840939078090957432',
+        #     price=float(0.72),
+        #     size=float(2),
+        #     tif="GTC",
+        # )
         try:
+
+            curr_balance =get_balance(self.settings)
+            self.logger.info(f"   💰 当前余额: ${curr_balance:.6f},预留金额:{self.settings.reserve_balance}")
+
+            #   trades= get_trades(self.settings) market =>condition
+            #   self.trades = pd.DataFrame( trades,columns=['id','market','asset_id','side','size','price','status','outcome'])
             start_date, end_date = self.get_dates()
             lens=1
-            self.logger.info(f"【启动】polymarket,{start_date},{end_date}")   
+            self.logger.info(f"==> 启动扫描,{start_date},{end_date}")   
             page=0
-            limit =200 
+            limit =500 
             while lens > 0 :
                 params = {
                         'limit': limit,
@@ -236,11 +236,11 @@ class SeekPolymarket():
                 if response.status_code == 200:
                     data = response.json()
 
-                    columns = ['id', 'slug', 'startDate','events', 'endDate','clobTokenIds','outcomes']
+                    columns = ['id', 'slug', 'startDate','events','conditionId', 'endDate','clobTokenIds','outcomes','sportsMarketType']
                     df = pd.DataFrame(data,columns=columns)
                     lens=len(df)
+                    self.logger.info(f"==> 查询第{page+1}页数据】数量:{lens}")   
                     self.reslove(df)
-                    self.logger.info(f"【polymarket-第{page+1}页数据】数量:{lens}")   
                     page += 1
                 else:
                     self.logger.error(f"请求失败，状态码: {response.status_code}, 响应内容: {response.text}")
@@ -249,16 +249,20 @@ class SeekPolymarket():
             self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
                            
 if __name__ == "__main__":
- 
+    logName= "poly-scan"
     settings = load_settings()
     runnerHelper=RunnerHelper() 
-    logger=  logging.getLogger(__name__)
+    logConfig=runnerHelper.getLogConfig(logName)
+    logging.config.dictConfig(logConfig)
+    logger =  logging.getLogger(logName)
+
     runner=SeekPolymarket(logger,settings) 
 
-    runner.run()
+    # runner.run()
    
-    # scheduler = BlockingScheduler()
+    scheduler = BlockingScheduler()
     # Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
     # scheduler.add_job(runner.run, 'cron', second='1,31',name='polymarket')
-    # scheduler.start()
+    scheduler.add_job(runner.run, 'interval', minutes=1, name=logName,next_run_time=datetime.now() )
+    scheduler.start()
 

@@ -2,7 +2,7 @@ import functools
 import logging
 from typing import Optional
 import time
-
+import os
 from py_clob_client.client import ClobClient
 from py_clob_client.clob_types import (
     BalanceAllowanceParams,
@@ -11,9 +11,11 @@ from py_clob_client.clob_types import (
     OrderType,
     PostOrdersArgs,
     PartialCreateOrderOptions,
+    TradeParams,
+    ApiCreds,
 )
+from py_clob_client.constants import AMOY
 from py_clob_client.order_builder.constants import BUY, SELL
-
 from .config import Settings
 
 logger = logging.getLogger(__name__)
@@ -80,6 +82,59 @@ def get_balance(settings: Settings) -> float:
 
 
 def place_order(settings: Settings, *, side: str, token_id: str, price: float, size: float, tif: str = "GTC") -> dict:
+    
+    host = "https://clob.polymarket.com"
+    chain_id = 137 # Polygon mainnet
+    private_key = settings.private_key
+    api_creds = ApiCreds(
+        api_key=settings.api_key,
+        api_secret=settings.api_secret,
+        api_passphrase=settings.api_passphrase
+    )
+
+    signature_type = 1
+    client = ClobClient(
+        host,
+        key=private_key,
+        chain_id=chain_id,
+        creds=api_creds,
+        funder='0x40cb56122479c4286fAB70530bA624e873E8201a',
+        signature_type=signature_type
+    )
+
+    # params = BalanceAllowanceParams(asset_type=AssetType.COLLATERAL)
+    # allowance = client.get_balance_allowance(params)
+
+    # print(allowance)
+
+    # client = get_client(settings)
+    # Get USDC (COLLATERAL) balance
+    # params = BalanceAllowanceParams(
+    #     asset_type=AssetType.COLLATERAL,
+    #     signature_type=settings.signature_type
+    # )
+    # result = client.get_balance_allowance(params)
+    
+    # if isinstance(result, dict):
+    #     balance_raw = result.get("balance", "0")
+    #     balance_wei = float(balance_raw)
+    #     # USDC has 6 decimals
+    #     balance_usdc = balance_wei / 1_000_000
+    #     print(balance_usdc)
+        
+
+    # order_args = OrderArgs(
+    #     price=0.3,
+    #     size=1.0,
+    #     side=BUY,
+    #     token_id="67907923640754422536549983884687639959795729031667929337463354290420556044100",
+    #     expiration="1000000000000",
+    # )
+    # signed_order = client.create_order(order_args)
+    # resp = client.post_order(signed_order, OrderType.GTD)
+    # print(resp)
+    # print("Done!")
+    
     if price <= 0:
         raise ValueError("price must be > 0")
     if size <= 0:
@@ -91,7 +146,7 @@ def place_order(settings: Settings, *, side: str, token_id: str, price: float, s
     if side_up not in {"BUY", "SELL"}:
         raise ValueError("side must be BUY or SELL")
 
-    client = get_client(settings)
+    # client = get_client(settings)
     
     try:
         # Create order args
@@ -101,16 +156,25 @@ def place_order(settings: Settings, *, side: str, token_id: str, price: float, s
             size=size,
             side=BUY if side_up == "BUY" else SELL
         )
+
+        # order_args = OrderArgs(
+        #     price=0.3,
+        #     size=1.0,
+        #     side=BUY,
+        #     token_id="67907923640754422536549983884687639959795729031667929337463354290420556044100"
+           
+        # )
         
         # BTC 15min markets are neg_risk but auto-detection via /neg-risk endpoint
         # often fails (returns "Invalid token id"). Force neg_risk=True for these markets.
         # This is safe: the worst case for non-neg_risk markets is a rejected order, not a bad signature.
-        options = PartialCreateOrderOptions(neg_risk=True)
-        signed_order = client.create_order(order_args, options)
-        
+        # options = PartialCreateOrderOptions(neg_risk=True)
+        # signed_order = client.create_order(order_args, options)
+        signed_order = client.create_order(order_args)
         tif_up = (tif or "GTC").upper()
+        
         order_type = getattr(OrderType, tif_up, OrderType.GTC)
-        return client.post_order(signed_order, order_type)
+        return client.post_order(signed_order, OrderType.GTC)
     except Exception as exc:  # pragma: no cover - passthrough from client
         raise RuntimeError(f"place_order failed: {exc}") from exc
 
@@ -191,6 +255,10 @@ def get_order(settings: Settings, order_id: str) -> dict:
     client = get_client(settings)
     return client.get_order(order_id)
 
+def get_trades(settings: Settings,market: str) -> list:
+    client = get_client(settings)
+    params = TradeParams(market=market)
+    return client.get_trades(params)
 
 def cancel_orders(settings: Settings, order_ids: list[str]) -> Optional[dict]:
     if not order_ids:

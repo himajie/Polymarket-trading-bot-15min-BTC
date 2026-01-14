@@ -1,0 +1,77 @@
+[
+    {'id': '4942f47d-8091-4ea1-a085-082cca129fbb', 
+    'taker_order_id': '0xf388717ae0621d46bf4cc521fb30436939f6665ada316615850842615999443b', 
+    'market': '0xbf2445dc3d3233329e63ec641cce23b2d110d4d85ae8241745153505bbb18492', 
+    'asset_id': '17879988349340553941551300844444375744724642436059042662933146038687849596486', 
+    'side': 'BUY', 
+    'size': '5', 
+    'fee_rate_bps': '0', 
+    'price': '0.97',
+     'status': 'CONFIRMED', 
+     'match_time': '1768371042', 
+     'last_update': '1768371108',
+      'outcome': 'Utah State Aggies', 
+      'bucket_index': 0, 
+      'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 
+      'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 
+      'transaction_hash': '0x626e645c22f0c7174095d97a76ed2a6569f7b8e52210b5c8ee1ccb2d8185a2d4', 
+      'maker_orders': [
+            {'order_id': '0x4a10eb2c0f892d61dfc9fb1daad79ccd0fa357ad80dd2de7b295c8132bb79f29',
+             'owner': '861a3d68-ab61-11fc-61c7-de192ebb26d5',
+              'maker_address': '0x2B56389C154e8E572aedF90f0027a1009e146431', 
+              'matched_amount': '5', 
+              'price': '0.97', 
+              'fee_rate_bps': '0',
+               'asset_id': '17879988349340553941551300844444375744724642436059042662933146038687849596486', 
+               'outcome': 'Utah State Aggies', 
+               'side': 'SELL'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': 'f09aa5f8-515f-4584-84bf-c197a1837cad', 'taker_order_id': '0x771a1965615bfbecba27c6d6cf61881377fb57d6aa5af0d7364c0e2c99487abb', 'market': '0x0db4fd06ca59c59bbf4b51b3bba0afce906ddcc19de696f9773fc1a915a87668', 'asset_id': '20953033825589540503676263406944496673051423146406624693850356130362779771566', 'side': 'BUY', 'size': '5', 'fee_rate_bps': '0', 'price': '0.97', 'status': 'CONFIRMED', 'match_time': '1768370937', 'last_update': '1768370980', 'outcome': 'Utah State Aggies', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0xbf5e0035ec8ddec765ef02c099e7921395fef74a278aaa1680fa7ac1880617bd', 'maker_orders': [
+            {'order_id': '0xeef882e4517d8fd8a27eae29c89e92aa189c322afde8c623299ea3f65cea1733', 'owner': '95b2f699-e798-7003-f980-d0ed1a9e2ff1', 'maker_address': '0xB1275BBfB4183BcDB3af933Af4786D8b80DABbb2', 'matched_amount': '5', 'price': '0.03', 'fee_rate_bps': '0', 'asset_id': '45923805055450964113973116063846287109260610877013530245682595906559649192048', 'outcome': 'Fresno State Bulldogs', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': 'a2685e27-0799-488e-8a15-b2f597af3d4e', 'taker_order_id': '0x4d20991c4081aaad5fe5f12ea924ebfd76a57170b1d4221111f04edd5fadb8c0', 'market': '0x96cdf758184849cf8f58c4c737ac9fe328dcbc4a829dc4c614fd150575c88d2e', 'asset_id': '7356307011981026568669537659612239437555206533212061948068634226384443169593', 'side': 'BUY', 'size': '5', 'fee_rate_bps': '0', 'price': '0.97', 'status': 'CONFIRMED', 'match_time': '1768318723', 'last_update': '1768318799', 'outcome': 'Yes', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0x7313f873ce72dfe4ae767fd061d7840db8b6758c2f7fc8f97bcb944f706960f5', 'maker_orders': [
+            {'order_id': '0xc2c05cac6b5eaad82d1c29873cfac75d33387a4bb1c85f5eb6c7e7416e24e978', 'owner': '05131f5c-b0ef-55ff-4e69-459eb1cfe486', 'maker_address': '0x79c1D4E4AB909Ed1022022CEc60B9E959B7F497D', 'matched_amount': '5', 'price': '0.03', 'fee_rate_bps': '0', 'asset_id': '102302290066149974381520988247608618629065846399112142075805664855596929274921', 'outcome': 'No', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': '8768d6f2-7a5c-4868-9257-3fd21bf87584', 'taker_order_id': '0x14e360bda3d13473bcf6629d7e64797866b2bd197b8af3d7e292eea751e7a063', 'market': '0x96cdf758184849cf8f58c4c737ac9fe328dcbc4a829dc4c614fd150575c88d2e', 'asset_id': '7356307011981026568669537659612239437555206533212061948068634226384443169593', 'side': 'SELL', 'size': '30.64', 'fee_rate_bps': '0', 'price': '0.954', 'status': 'CONFIRMED', 'match_time': '1768318671', 'last_update': '1768318735', 'outcome': 'Yes', 'bucket_index': 0, 'owner': '6d857659-c003-56e7-e234-12ace9cdb6d7', 'maker_address': '0x1E3BC72271435F46effb75353403936aB664e3bA', 'transaction_hash': '0x79fb075b4f4ec4809281b18b1974bc6ba02b130fc3290bdb469f10e414e8cba4', 'maker_orders': [
+            {'order_id': '0x60e50ac33d05444ba69965be2ec003d724eb4ff4cc11c25742dd291648d01fc7', 'owner': 'd1ac1bf0-cb2f-b759-5575-ef4ea4d69d11', 'maker_address': '0xc9Fd4B91df705026Bf49cC1a07F67E0e2D46F242', 'matched_amount': '10', 'price': '0.969', 'fee_rate_bps': '0', 'asset_id': '7356307011981026568669537659612239437555206533212061948068634226384443169593', 'outcome': 'Yes', 'side': 'BUY'
+            },
+            {'order_id': '0xa3fcb5b57c0db6fd70956a919358233fc65f497d1c7330c2be9325939d6d9f8e', 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'matched_amount': '5', 'price': '0.969', 'fee_rate_bps': '0', 'asset_id': '7356307011981026568669537659612239437555206533212061948068634226384443169593', 'outcome': 'Yes', 'side': 'BUY'
+            },
+            {'order_id': '0xb6c995ade0b5c30e47ec0fb7e04dfeae450ff9a895327a9e13c23ed6b68b4158', 'owner': 'be4ee83e-a459-05ad-f8ea-da0221abbc20', 'maker_address': '0x9E25301e7A715922b17b4b90c4786BfE247E519e', 'matched_amount': '15.64', 'price': '0.94', 'fee_rate_bps': '0', 'asset_id': '7356307011981026568669537659612239437555206533212061948068634226384443169593', 'outcome': 'Yes', 'side': 'BUY'
+            }
+        ], 'trader_side': 'MAKER'
+    },
+    {'id': '257ffc70-3ef3-4359-8d93-cecb6a320c20', 'taker_order_id': '0xb3c3706b4e8817378cedc63d51cd129819ea6f2cc95fac3d6908f2db114f71d5', 'market': '0x6a72b48f6a76906ac60ae8f7e42ad2dbc3dec6c7a0c9cc2e87a52e36f7338186', 'asset_id': '85418499967366669631818513648167419535900934672186959878248920508106775400298', 'side': 'BUY', 'size': '5', 'fee_rate_bps': '0', 'price': '0.96', 'status': 'CONFIRMED', 'match_time': '1768318354', 'last_update': '1768318415', 'outcome': 'No', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0x0aa6cbb060d68c6c6d01d12a9111e5e45c9d459dbc8490d48b6712b7f93b8af1', 'maker_orders': [
+            {'order_id': '0x15663d270a023fe1ace42e9a28add486af387ac938361e33184c5e8ca3c5c443', 'owner': 'd45f7e21-02a8-780b-1b12-8708b1fd7c20', 'maker_address': '0xE03a0731b302740089c0B6505767B05f0110439F', 'matched_amount': '5', 'price': '0.04', 'fee_rate_bps': '0', 'asset_id': '54238105715923131696020161577378667161701004714076199482438402511028064097234', 'outcome': 'Yes', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': 'fe8c38d3-86c1-440e-8438-314ce1176c97', 'taker_order_id': '0xbf353c8eb176f78faa9e99f02b516547eb2780ed3156e4f2b37d3c60cb010d2a', 'market': '0x0873d893d590c648cb6935d27fe1f3c05d977814a8b91ec12e96d25ab4e97eae', 'asset_id': '19545808353588654336669327965068990655761532485285980791887061572305935013493', 'side': 'SELL', 'size': '40', 'fee_rate_bps': '0', 'price': '0.975', 'status': 'CONFIRMED', 'match_time': '1761554286', 'last_update': '1761554363', 'outcome': 'No', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0x8db6f4f8d67ab9c5b664bec02339d9b9fff277ca30e5fbcfa1f37452ba581489', 'maker_orders': [
+            {'order_id': '0x35775fb7f2b66f006def94c97685c4b61c1bd2601b9a7c6b9c302b1c4b4e836c', 'owner': '2877a6f0-087c-872d-d850-5ebde12819cf', 'maker_address': '0x74416687453b92A843De6D05810d6d1A12A15eD5', 'matched_amount': '40', 'price': '0.975', 'fee_rate_bps': '0', 'asset_id': '19545808353588654336669327965068990655761532485285980791887061572305935013493', 'outcome': 'No', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': 'bba7e6f7-2dd1-409f-96ed-b25185ca3509', 'taker_order_id': '0xca89c7ec5cdabf54dd356fbf4176027bebd6a3a3a71b7043474e50fa8738f305', 'market': '0xd63074a69db9fbe28c8a9f3bfe64d8c16eb39e302be281ad9e3a91081b7429f5', 'asset_id': '96340419016329750070031659742502439684494696372249802246223670494758843453703', 'side': 'BUY', 'size': '102.040815', 'fee_rate_bps': '0', 'price': '0.049', 'status': 'CONFIRMED', 'match_time': '1761553379', 'last_update': '1761553467', 'outcome': 'No', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0x93a240a98a4cb3bf34492ca3c21dc292231697077a8d56d3d8954ba2cc81abfe', 'maker_orders': [
+            {'order_id': '0xb49c25f22c73673c99aa3650483d2415a459df6f426119ce1cd74189cb3f7fad', 'owner': 'cf9866cd-eea7-40b5-31c0-853288ed7953', 'maker_address': '0x6b0EBBef2630B9A0dA35594bf7DDD1911246E3Ea', 'matched_amount': '35.4', 'price': '0.049', 'fee_rate_bps': '0', 'asset_id': '96340419016329750070031659742502439684494696372249802246223670494758843453703', 'outcome': 'No', 'side': 'SELL'
+            },
+            {'order_id': '0x11520a3280be0782145294eac165540600fccfcf7d65b79f8c4aeec0da6e3136', 'owner': 'caf06f09-1e0b-6767-729a-34b8a7f6b0dc', 'maker_address': '0xf0b0eF1D6320C6bE896B4c9C54dd74407e7f8cAB', 'matched_amount': '66.640815', 'price': '0.0489999859695593', 'fee_rate_bps': '0', 'asset_id': '96340419016329750070031659742502439684494696372249802246223670494758843453703', 'outcome': 'No', 'side': 'SELL'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': 'fd1d7383-efa9-4ac7-a979-ce2d4c8bd3e1', 'taker_order_id': '0xb687276287247c02e3bd785e3b5fa45148dfde066a25383cfc58ebac34e501f2', 'market': '0xde97e8abacbf814ffcc063cada557f8d3305286f508dd5390fe9cbfdd7e193cc', 'asset_id': '80902817818828866509388135883929398286454429512933474404144477475899719703351', 'side': 'BUY', 'size': '10', 'fee_rate_bps': '0', 'price': '0.5', 'status': 'CONFIRMED', 'match_time': '1761552134', 'last_update': '1761552187', 'outcome': 'Yes', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0x15a4f22cf99e5b9417a9aed9a32f0490c75e0affc01007b1100c71779dc72ee6', 'maker_orders': [
+            {'order_id': '0xade94ca0c19c0a80aa4ae858417814638fc4d0b2de888e7c5d2d23c5f3ee36fd', 'owner': '610a03c6-0d7e-5d11-fc4a-af30138462dd', 'maker_address': '0xFB1c3C1Ab4Fb2d0CBCBb9538c8d4D357DD95963e', 'matched_amount': '10', 'price': '0.5', 'fee_rate_bps': '0', 'asset_id': '75822906020584918913484130647176973281901948339504089191081734774342582295593', 'outcome': 'No', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    },
+    {'id': '98f28459-7c23-41f8-9c19-e754b4d28b19', 'taker_order_id': '0x12cd8d1a598b3765e77832d918c4ab67537086d398cfb36c62374ee48e53376a', 'market': '0x0873d893d590c648cb6935d27fe1f3c05d977814a8b91ec12e96d25ab4e97eae', 'asset_id': '19545808353588654336669327965068990655761532485285980791887061572305935013493', 'side': 'BUY', 'size': '40', 'fee_rate_bps': '0', 'price': '0.979', 'status': 'CONFIRMED', 'match_time': '1761548272', 'last_update': '1761548347', 'outcome': 'No', 'bucket_index': 0, 'owner': '51a19035-6766-2678-d3ca-6cd517224b77', 'maker_address': '0x40cb56122479c4286fAB70530bA624e873E8201a', 'transaction_hash': '0xb35a629f9a98b7cd06eb6be331ebfa51f288b21b9ee569b3b97c660f616753de', 'maker_orders': [
+            {'order_id': '0x75c79df3c151f6a18296f081ede40257080cca67e326424b961de0511c6369af', 'owner': 'cf9866cd-eea7-40b5-31c0-853288ed7953', 'maker_address': '0x6b0EBBef2630B9A0dA35594bf7DDD1911246E3Ea', 'matched_amount': '40', 'price': '0.021', 'fee_rate_bps': '0', 'asset_id': '16961629207099931605519553279291608035383403981184594007441669755435199992372', 'outcome': 'Yes', 'side': 'BUY'
+            }
+        ], 'trader_side': 'TAKER'
+    }
+]
