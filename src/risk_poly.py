@@ -6,7 +6,7 @@ import logging
 import json
 import pandas as pd
 import numpy as np 
-from datetime import datetime, timedelta,timezone,time
+from datetime import datetime, timedelta,timezone
 import logging
 from apscheduler.schedulers.blocking import BlockingScheduler
 import pandas as pd
@@ -26,9 +26,10 @@ from .trading import (
     cancel_orders,
     get_trades,
     get_balance,
+    get_trades_page,
 )
 
-class SeekPolymarket():
+class RiskPolymarket():
     def __init__(self,logger,settings):
         self.settings = settings
         self.client = get_client(settings)
@@ -184,14 +185,14 @@ class SeekPolymarket():
         if curr_balance < self.settings.reserve_balance + self.settings.order_size:
             self.logger.warning(f"===> ⚠️ 余额不足，当前余额: ${curr_balance:.6f},保留余额: ${self.settings.reserve_balance:.6f},跳过下单")
             return
-        place_order(
-            self.settings,
-            side="BUY",
-            token_id=token_id,
-            price=float(price),
-            size=float(size),
-            tif="GTC",
-        )
+        # place_order(
+        #     self.settings,
+        #     side="BUY",
+        #     token_id=token_id,
+        #     price=float(price),
+        #     size=float(size),
+        #     tif="GTC",
+        # )
         self.logger.warning(f"===>提交订单:   {token_id}, ${price:.4f} x {size} shares")
 
     def run(self):
@@ -216,43 +217,64 @@ class SeekPolymarket():
         #     tif="GTC",
         # )
         try:
+            befor_timastamp = int(time.time())  
+            after_timestamp = int(time.time() - 60*60*20)
 
-            curr_balance =get_balance(self.settings)
-            self.logger.info(f"   💰 当前余额: ${curr_balance:.6f},预留金额:{self.settings.reserve_balance}")
-
-            #   trades= get_trades(self.settings) market =>condition
-            #   self.trades = pd.DataFrame( trades,columns=['id','market','asset_id','side','size','price','status','outcome'])
-            start_date, end_date = self.get_dates()
-            lens=1
-            self.logger.info(f"==> 启动扫描,{start_date},{end_date}")   
-            page=0
-            limit =500 
-            while lens > 0 :
-                params = {
-                        'limit': limit,
-                        'offset': page * limit,
-                        'order':'id',
-                        'ascending':'true',
-                        'closed': 'false',
-                        'end_date_min':start_date,
-                        'end_date_max':end_date
-                    }
-                response = self.http_client.get('https://gamma-api.polymarket.com/markets',params=params)
-                # 检查请求是否成功
-                if response.status_code == 200:
-                    data = response.json()
-
-                    columns = ['id', 'slug', 'startDate','eventStartTime','events','conditionId', 'endDate','clobTokenIds','outcomes','sportsMarketType']
-                    df = pd.DataFrame(data,columns=columns)
-                    lens=len(df)
-                    self.logger.info(f"==> 查询第{page+1}页数据】数量:{lens}")   
-                    self.reslove(df)
-                    page += 1
-                else:
-                    self.logger.error(f"请求失败，状态码: {response.status_code}, 响应内容: {response.text}")
-                    break
+            # self.settings,
+            # side="BUY",
+            # token_id=token_id,
+            # price=float(price),
+            # size=float(size),
+            # tif="GTC",
+            
+            trades= get_trades_page(self.settings,before=befor_timastamp,after=after_timestamp) 
+            df=pd.DataFrame(trades,columns=['id','side','size','price','status','asset_id','match_time']) 
+            df = df.sort_values(by='match_time', ascending=False)
+            df['price'] = pd.to_numeric(df['price'], errors='coerce')
+            df = df[df['side'] == 'BUY']
+            # df = df[df['price'] <= 0.80]
+            if df.empty:
+                return
+            for index, row in df.iterrows():
+                pass
+            print(df)
         except Exception as e:
-            self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
+                self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
+                pass
+            # curr_balance =get_balance(self.settings)
+            # self.logger.info(f"   💰 当前余额: ${curr_balance:.6f},预留金额:{self.settings.reserve_balance}")
+
+        #     start_date, end_date = self.get_dates()
+        #     lens=1
+        #     self.logger.info(f"==> 启动扫描,{start_date},{end_date}")   
+        #     page=0
+        #     limit =500 
+        #     while lens > 0 :
+        #         params = {
+        #                 'limit': limit,
+        #                 'offset': page * limit,
+        #                 'order':'id',
+        #                 'ascending':'true',
+        #                 'closed': 'false',
+        #                 'end_date_min':start_date,
+        #                 'end_date_max':end_date
+        #             }
+        #         response = self.http_client.get('https://gamma-api.polymarket.com/markets',params=params)
+        #         # 检查请求是否成功
+        #         if response.status_code == 200:
+        #             data = response.json()
+
+        #             columns = ['id', 'slug', 'startDate','eventStartTime','events','conditionId', 'endDate','clobTokenIds','outcomes','sportsMarketType']
+        #             df = pd.DataFrame(data,columns=columns)
+        #             lens=len(df)
+        #             self.logger.info(f"==> 查询第{page+1}页数据】数量:{lens}")   
+        #             self.reslove(df)
+        #             page += 1
+        #         else:
+        #             self.logger.error(f"请求失败，状态码: {response.status_code}, 响应内容: {response.text}")
+        #             break
+        # except Exception as e:
+        #     self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
                            
 if __name__ == "__main__":
     logName= "poly-scan"
@@ -262,13 +284,13 @@ if __name__ == "__main__":
     logging.config.dictConfig(logConfig)
     logger =  logging.getLogger(logName)
 
-    runner=SeekPolymarket(logger,settings) 
+    runner=RiskPolymarket(logger,settings) 
 
-    # runner.run()
+    runner.run()
    
-    scheduler = BlockingScheduler()
-    # Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
-    # scheduler.add_job(runner.run, 'cron', second='1,31',name='polymarket')
-    scheduler.add_job(runner.run, 'interval', minutes=1, name=logName,next_run_time=datetime.now() )
-    scheduler.start()
+    # scheduler = BlockingScheduler()
+    # # Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
+    # # scheduler.add_job(runner.run, 'cron', second='1,31',name='polymarket')
+    # scheduler.add_job(runner.run, 'interval', minutes=1, name=logName,next_run_time=datetime.now() )
+    # scheduler.start()
 

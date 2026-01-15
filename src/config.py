@@ -47,6 +47,7 @@ class Settings:
 
     reserve_balance: float = float(os.getenv("RESERVE_BALANCE", "50"))
 
-
+    price_min: float = float(os.getenv("PRICE_MIN", "0.92"))
+    price_max: float = float(os.getenv("PRICE_MAX", "0.97"))
 def load_settings() -> Settings:
     return Settings()

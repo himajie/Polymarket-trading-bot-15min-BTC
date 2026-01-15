@@ -12,3 +12,11 @@ python-dotenv==1.0.1
 
 # Rich console output (optional, falls back to basic logging if not available)
 rich>=13.0.0
+
+
+# Polymarket Builder libraries
+py-builder-relayer-client>=0.0.1
+py-builder-signing-sdk>=0.0.1
+
+# HTTP client
+requests>=2.31.0

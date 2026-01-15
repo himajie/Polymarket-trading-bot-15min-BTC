@@ -260,6 +260,11 @@ def get_trades(settings: Settings,market: str) -> list:
     params = TradeParams(market=market)
     return client.get_trades(params)
 
+def get_trades_page(settings: Settings,before:int,after:int) -> list:
+    client = get_client(settings)
+    params = TradeParams(before=before,after=after)
+    return client.get_trades(params)
+
 def cancel_orders(settings: Settings, order_ids: list[str]) -> Optional[dict]:
     if not order_ids:
         return None
