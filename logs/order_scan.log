@@ -1,0 +1,758 @@
+23:52:13 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:52:13 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:52:14 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:52:14 scan-poly     INFO 【scan-poly : 34 秒】
+23:52:15 scan-poly  WARNING                     
+23:52:15 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:15 scan-poly     INFO 【scan-poly : 33 秒】
+23:52:15 scan-poly  WARNING                     
+23:52:15 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:16 scan-poly  WARNING                     
+23:52:16 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:16 scan-poly     INFO 【scan-poly : 32 秒】
+23:52:17 scan-poly  WARNING                     
+23:52:17 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:17 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:52:17 scan-poly     INFO ==>>无符合条件的数据
+23:52:17 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:52:17 scan-poly     INFO 【scan-poly : 31 秒】
+23:52:18 scan-poly     INFO 【scan-poly : 30 秒】
+23:52:19 scan-poly     INFO 【scan-poly : 29 秒】
+23:52:20 scan-poly     INFO 【scan-poly : 28 秒】
+23:52:21 scan-poly     INFO 【scan-poly : 27 秒】
+23:52:22 scan-poly     INFO 【scan-poly : 26 秒】
+23:52:23 scan-poly     INFO 【scan-poly : 25 秒】
+23:52:24 scan-poly     INFO 【scan-poly : 24 秒】
+23:52:25 scan-poly     INFO 【scan-poly : 23 秒】
+23:52:26 scan-poly     INFO 【scan-poly : 22 秒】
+23:52:27 scan-poly     INFO 【scan-poly : 21 秒】
+23:52:28 scan-poly     INFO 【scan-poly : 20 秒】
+23:52:29 scan-poly     INFO 【scan-poly : 19 秒】
+23:52:30 scan-poly     INFO 【scan-poly : 18 秒】
+23:52:31 scan-poly     INFO 【scan-poly : 17 秒】
+23:52:32 scan-poly     INFO 【scan-poly : 16 秒】
+23:52:33 scan-poly     INFO 【scan-poly : 15 秒】
+23:52:34 scan-poly     INFO 【scan-poly : 14 秒】
+23:52:35 scan-poly     INFO 【scan-poly : 13 秒】
+23:52:36 scan-poly     INFO 【scan-poly : 12 秒】
+23:52:37 scan-poly     INFO 【scan-poly : 11 秒】
+23:52:38 scan-poly     INFO 【scan-poly : 10 秒】
+23:52:39 scan-poly     INFO 【scan-poly : 9 秒】
+23:52:40 scan-poly     INFO 【scan-poly : 8 秒】
+23:52:41 scan-poly     INFO 【scan-poly : 7 秒】
+23:52:42 scan-poly     INFO 【scan-poly : 6 秒】
+23:52:43 scan-poly     INFO 【scan-poly : 5 秒】
+23:52:44 scan-poly     INFO 【scan-poly : 4 秒】
+23:52:45 scan-poly     INFO 【scan-poly : 3 秒】
+23:52:46 scan-poly     INFO 【scan-poly : 2 秒】
+23:52:47 scan-poly     INFO 【scan-poly : 1 秒】
+23:52:48 scan-poly     INFO 【scan-poly : 0 秒】
+23:52:48 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:52:48 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:52:49 scan-poly     INFO 【scan-poly : 34 秒】
+23:52:49 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:52:50 scan-poly  WARNING                     
+23:52:50 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:50 scan-poly     INFO 【scan-poly : 33 秒】
+23:52:51 scan-poly  WARNING                     
+23:52:51 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:51 scan-poly     INFO 【scan-poly : 32 秒】
+23:52:51 scan-poly  WARNING                     
+23:52:51 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:52 scan-poly  WARNING                     
+23:52:52 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:52:52 scan-poly     INFO 【scan-poly : 31 秒】
+23:52:53 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:52:53 scan-poly     INFO ==>>无符合条件的数据
+23:52:53 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:52:53 scan-poly     INFO 【scan-poly : 30 秒】
+23:52:54 scan-poly     INFO 【scan-poly : 29 秒】
+23:52:55 scan-poly     INFO 【scan-poly : 28 秒】
+23:52:56 scan-poly     INFO 【scan-poly : 27 秒】
+23:52:57 scan-poly     INFO 【scan-poly : 26 秒】
+23:52:58 scan-poly     INFO 【scan-poly : 25 秒】
+23:52:59 scan-poly     INFO 【scan-poly : 24 秒】
+23:53:00 scan-poly     INFO 【scan-poly : 23 秒】
+23:53:01 scan-poly     INFO 【scan-poly : 22 秒】
+23:53:02 scan-poly     INFO 【scan-poly : 21 秒】
+23:53:03 scan-poly     INFO 【scan-poly : 20 秒】
+23:53:04 scan-poly     INFO 【scan-poly : 19 秒】
+23:53:05 scan-poly     INFO 【scan-poly : 18 秒】
+23:53:06 scan-poly     INFO 【scan-poly : 17 秒】
+23:53:07 scan-poly     INFO 【scan-poly : 16 秒】
+23:53:08 scan-poly     INFO 【scan-poly : 15 秒】
+23:53:09 scan-poly     INFO 【scan-poly : 14 秒】
+23:53:10 scan-poly     INFO 【scan-poly : 13 秒】
+23:53:11 scan-poly     INFO 【scan-poly : 12 秒】
+23:53:12 scan-poly     INFO 【scan-poly : 11 秒】
+23:53:13 scan-poly     INFO 【scan-poly : 10 秒】
+23:53:14 scan-poly     INFO 【scan-poly : 9 秒】
+23:53:15 scan-poly     INFO 【scan-poly : 8 秒】
+23:53:16 scan-poly     INFO 【scan-poly : 7 秒】
+23:53:17 scan-poly     INFO 【scan-poly : 6 秒】
+23:53:18 scan-poly     INFO 【scan-poly : 5 秒】
+23:53:19 scan-poly     INFO 【scan-poly : 4 秒】
+23:53:20 scan-poly     INFO 【scan-poly : 3 秒】
+23:53:21 scan-poly     INFO 【scan-poly : 2 秒】
+23:53:22 scan-poly     INFO 【scan-poly : 1 秒】
+23:53:23 scan-poly     INFO 【scan-poly : 0 秒】
+23:53:23 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:53:23 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:53:24 scan-poly     INFO 【scan-poly : 34 秒】
+23:53:24 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:53:25 scan-poly  WARNING                     
+23:53:25 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:53:25 scan-poly     INFO 【scan-poly : 33 秒】
+23:53:26 scan-poly  WARNING                     
+23:53:26 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:53:26 scan-poly     INFO 【scan-poly : 32 秒】
+23:53:26 scan-poly  WARNING                     
+23:53:26 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:53:27 scan-poly  WARNING                     
+23:53:27 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:53:27 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:53:27 scan-poly     INFO ==>>无符合条件的数据
+23:53:27 scan-poly     INFO 【scan-poly : 31 秒】
+23:53:28 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:53:28 scan-poly     INFO 【scan-poly : 30 秒】
+23:53:29 scan-poly     INFO 【scan-poly : 29 秒】
+23:53:30 scan-poly     INFO 【scan-poly : 28 秒】
+23:53:31 scan-poly     INFO 【scan-poly : 27 秒】
+23:53:32 scan-poly     INFO 【scan-poly : 26 秒】
+23:53:33 scan-poly     INFO 【scan-poly : 25 秒】
+23:53:34 scan-poly     INFO 【scan-poly : 24 秒】
+23:53:35 scan-poly     INFO 【scan-poly : 23 秒】
+23:53:36 scan-poly     INFO 【scan-poly : 22 秒】
+23:53:37 scan-poly     INFO 【scan-poly : 21 秒】
+23:53:38 scan-poly     INFO 【scan-poly : 20 秒】
+23:53:39 scan-poly     INFO 【scan-poly : 19 秒】
+23:53:40 scan-poly     INFO 【scan-poly : 18 秒】
+23:53:41 scan-poly     INFO 【scan-poly : 17 秒】
+23:53:42 scan-poly     INFO 【scan-poly : 16 秒】
+23:53:43 scan-poly     INFO 【scan-poly : 15 秒】
+23:53:44 scan-poly     INFO 【scan-poly : 14 秒】
+23:53:45 scan-poly     INFO 【scan-poly : 13 秒】
+23:53:46 scan-poly     INFO 【scan-poly : 12 秒】
+23:53:47 scan-poly     INFO 【scan-poly : 11 秒】
+23:53:48 scan-poly     INFO 【scan-poly : 10 秒】
+23:53:49 scan-poly     INFO 【scan-poly : 9 秒】
+23:53:50 scan-poly     INFO 【scan-poly : 8 秒】
+23:53:51 scan-poly     INFO 【scan-poly : 7 秒】
+23:53:52 scan-poly     INFO 【scan-poly : 6 秒】
+23:53:53 scan-poly     INFO 【scan-poly : 5 秒】
+23:53:54 scan-poly     INFO 【scan-poly : 4 秒】
+23:53:55 scan-poly     INFO 【scan-poly : 3 秒】
+23:53:56 scan-poly     INFO 【scan-poly : 2 秒】
+23:53:57 scan-poly     INFO 【scan-poly : 1 秒】
+23:53:58 scan-poly     INFO 【scan-poly : 0 秒】
+23:53:58 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:53:58 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:53:59 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:53:59 scan-poly     INFO 【scan-poly : 34 秒】
+23:54:00 scan-poly  WARNING                     
+23:54:00 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:54:00 scan-poly     INFO 【scan-poly : 33 秒】
+23:54:01 scan-poly  WARNING                     
+23:54:01 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:54:01 scan-poly  WARNING                     
+23:54:01 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:54:01 scan-poly     INFO 【scan-poly : 32 秒】
+23:54:02 scan-poly  WARNING                     
+23:54:02 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578600, DOWN:0.0, UP:0.0
+23:54:02 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:54:02 scan-poly     INFO ==>>无符合条件的数据
+23:54:02 scan-poly     INFO 【scan-poly : 31 秒】
+23:54:03 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:54:03 scan-poly     INFO 【scan-poly : 30 秒】
+23:54:04 scan-poly     INFO 【scan-poly : 29 秒】
+23:54:05 scan-poly     INFO 【scan-poly : 28 秒】
+23:54:06 scan-poly     INFO 【scan-poly : 27 秒】
+23:54:07 scan-poly     INFO 【scan-poly : 26 秒】
+23:54:08 scan-poly     INFO 【scan-poly : 25 秒】
+23:54:09 scan-poly     INFO 【scan-poly : 24 秒】
+23:54:10 scan-poly     INFO 【scan-poly : 23 秒】
+23:54:11 scan-poly     INFO 【scan-poly : 22 秒】
+23:54:12 scan-poly     INFO 【scan-poly : 21 秒】
+23:54:13 scan-poly     INFO 【scan-poly : 20 秒】
+23:54:14 scan-poly     INFO 【scan-poly : 19 秒】
+23:54:15 scan-poly     INFO 【scan-poly : 18 秒】
+23:54:16 scan-poly     INFO 【scan-poly : 17 秒】
+23:54:17 scan-poly     INFO 【scan-poly : 16 秒】
+23:54:18 scan-poly     INFO 【scan-poly : 15 秒】
+23:54:19 scan-poly     INFO 【scan-poly : 14 秒】
+23:54:20 scan-poly     INFO 【scan-poly : 13 秒】
+23:54:21 scan-poly     INFO 【scan-poly : 12 秒】
+23:54:22 scan-poly     INFO 【scan-poly : 11 秒】
+23:54:23 scan-poly     INFO 【scan-poly : 10 秒】
+23:54:24 scan-poly     INFO 【scan-poly : 9 秒】
+23:54:25 scan-poly     INFO 【scan-poly : 8 秒】
+23:54:26 scan-poly     INFO 【scan-poly : 7 秒】
+23:54:27 scan-poly     INFO 【scan-poly : 6 秒】
+23:54:28 scan-poly     INFO 【scan-poly : 5 秒】
+23:54:29 scan-poly     INFO 【scan-poly : 4 秒】
+23:54:30 scan-poly     INFO 【scan-poly : 3 秒】
+23:54:31 scan-poly     INFO 【scan-poly : 2 秒】
+23:54:32 scan-poly     INFO 【scan-poly : 1 秒】
+23:54:33 scan-poly     INFO 【scan-poly : 0 秒】
+23:54:33 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:54:33 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:54:34 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:54:34 scan-poly     INFO ==>>无符合条件的数据
+23:54:34 scan-poly     INFO 【scan-poly : 34 秒】
+23:54:35 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:54:35 scan-poly     INFO ==>>无符合条件的数据
+23:54:35 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:54:35 scan-poly     INFO 【scan-poly : 33 秒】
+23:54:36 scan-poly     INFO 【scan-poly : 32 秒】
+23:54:37 scan-poly     INFO 【scan-poly : 31 秒】
+23:54:38 scan-poly     INFO 【scan-poly : 30 秒】
+23:54:39 scan-poly     INFO 【scan-poly : 29 秒】
+23:54:40 scan-poly     INFO 【scan-poly : 28 秒】
+23:54:41 scan-poly     INFO 【scan-poly : 27 秒】
+23:54:42 scan-poly     INFO 【scan-poly : 26 秒】
+23:54:43 scan-poly     INFO 【scan-poly : 25 秒】
+23:54:44 scan-poly     INFO 【scan-poly : 24 秒】
+23:54:45 scan-poly     INFO 【scan-poly : 23 秒】
+23:54:46 scan-poly     INFO 【scan-poly : 22 秒】
+23:54:47 scan-poly     INFO 【scan-poly : 21 秒】
+23:54:48 scan-poly     INFO 【scan-poly : 20 秒】
+23:54:49 scan-poly     INFO 【scan-poly : 19 秒】
+23:54:50 scan-poly     INFO 【scan-poly : 18 秒】
+23:54:51 scan-poly     INFO 【scan-poly : 17 秒】
+23:54:52 scan-poly     INFO 【scan-poly : 16 秒】
+23:54:53 scan-poly     INFO 【scan-poly : 15 秒】
+23:54:55 scan-poly     INFO 【scan-poly : 14 秒】
+23:54:56 scan-poly     INFO 【scan-poly : 13 秒】
+23:54:57 scan-poly     INFO 【scan-poly : 12 秒】
+23:54:58 scan-poly     INFO 【scan-poly : 11 秒】
+23:54:59 scan-poly     INFO 【scan-poly : 10 秒】
+23:55:00 scan-poly     INFO 【scan-poly : 9 秒】
+23:55:01 scan-poly     INFO 【scan-poly : 8 秒】
+23:55:02 scan-poly     INFO 【scan-poly : 7 秒】
+23:55:03 scan-poly     INFO 【scan-poly : 6 秒】
+23:55:04 scan-poly     INFO 【scan-poly : 5 秒】
+23:55:05 scan-poly     INFO 【scan-poly : 4 秒】
+23:55:06 scan-poly     INFO 【scan-poly : 3 秒】
+23:55:07 scan-poly     INFO 【scan-poly : 2 秒】
+23:55:08 scan-poly     INFO 【scan-poly : 1 秒】
+23:55:08 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:55:08 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:55:09 scan-poly     INFO 【scan-poly : 0 秒】
+23:55:09 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:55:09 scan-poly     INFO ==>>无符合条件的数据
+23:55:09 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:55:09 scan-poly     INFO ==>>无符合条件的数据
+23:55:09 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:55:10 scan-poly     INFO 【scan-poly : 34 秒】
+23:55:11 scan-poly     INFO 【scan-poly : 33 秒】
+23:55:12 scan-poly     INFO 【scan-poly : 32 秒】
+23:55:13 scan-poly     INFO 【scan-poly : 31 秒】
+23:55:14 scan-poly     INFO 【scan-poly : 30 秒】
+23:55:15 scan-poly     INFO 【scan-poly : 29 秒】
+23:55:16 scan-poly     INFO 【scan-poly : 28 秒】
+23:55:17 scan-poly     INFO 【scan-poly : 27 秒】
+23:55:18 scan-poly     INFO 【scan-poly : 26 秒】
+23:55:19 scan-poly     INFO 【scan-poly : 25 秒】
+23:55:20 scan-poly     INFO 【scan-poly : 24 秒】
+23:55:21 scan-poly     INFO 【scan-poly : 23 秒】
+23:55:22 scan-poly     INFO 【scan-poly : 22 秒】
+23:55:23 scan-poly     INFO 【scan-poly : 21 秒】
+23:55:24 scan-poly     INFO 【scan-poly : 20 秒】
+23:55:25 scan-poly     INFO 【scan-poly : 19 秒】
+23:55:26 scan-poly     INFO 【scan-poly : 18 秒】
+23:55:27 scan-poly     INFO 【scan-poly : 17 秒】
+23:55:28 scan-poly     INFO 【scan-poly : 16 秒】
+23:55:29 scan-poly     INFO 【scan-poly : 15 秒】
+23:55:30 scan-poly     INFO 【scan-poly : 14 秒】
+23:55:31 scan-poly     INFO 【scan-poly : 13 秒】
+23:55:32 scan-poly     INFO 【scan-poly : 12 秒】
+23:55:33 scan-poly     INFO 【scan-poly : 11 秒】
+23:55:34 scan-poly     INFO 【scan-poly : 10 秒】
+23:55:35 scan-poly     INFO 【scan-poly : 9 秒】
+23:55:36 scan-poly     INFO 【scan-poly : 8 秒】
+23:55:37 scan-poly     INFO 【scan-poly : 7 秒】
+23:55:38 scan-poly     INFO 【scan-poly : 6 秒】
+23:55:39 scan-poly     INFO 【scan-poly : 5 秒】
+23:55:40 scan-poly     INFO 【scan-poly : 4 秒】
+23:55:41 scan-poly     INFO 【scan-poly : 3 秒】
+23:55:42 scan-poly     INFO 【scan-poly : 2 秒】
+23:55:43 scan-poly     INFO 【scan-poly : 1 秒】
+23:55:43 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:55:43 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:55:44 scan-poly     INFO 【scan-poly : 0 秒】
+23:55:44 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:55:44 scan-poly     INFO ==>>无符合条件的数据
+23:55:44 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:55:44 scan-poly     INFO ==>>无符合条件的数据
+23:55:45 scan-poly     INFO 【scan-poly : 34 秒】
+23:55:45 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:55:46 scan-poly     INFO 【scan-poly : 33 秒】
+23:55:47 scan-poly     INFO 【scan-poly : 32 秒】
+23:55:48 scan-poly     INFO 【scan-poly : 31 秒】
+23:55:49 scan-poly     INFO 【scan-poly : 30 秒】
+23:55:50 scan-poly     INFO 【scan-poly : 29 秒】
+23:55:51 scan-poly     INFO 【scan-poly : 28 秒】
+23:55:52 scan-poly     INFO 【scan-poly : 27 秒】
+23:55:53 scan-poly     INFO 【scan-poly : 26 秒】
+23:55:54 scan-poly     INFO 【scan-poly : 25 秒】
+23:55:55 scan-poly     INFO 【scan-poly : 24 秒】
+23:55:56 scan-poly     INFO 【scan-poly : 23 秒】
+23:55:57 scan-poly     INFO 【scan-poly : 22 秒】
+23:55:58 scan-poly     INFO 【scan-poly : 21 秒】
+23:55:59 scan-poly     INFO 【scan-poly : 20 秒】
+23:56:00 scan-poly     INFO 【scan-poly : 19 秒】
+23:56:01 scan-poly     INFO 【scan-poly : 18 秒】
+23:56:02 scan-poly     INFO 【scan-poly : 17 秒】
+23:56:03 scan-poly     INFO 【scan-poly : 16 秒】
+23:56:04 scan-poly     INFO 【scan-poly : 15 秒】
+23:56:05 scan-poly     INFO 【scan-poly : 14 秒】
+23:56:06 scan-poly     INFO 【scan-poly : 13 秒】
+23:56:07 scan-poly     INFO 【scan-poly : 12 秒】
+23:56:08 scan-poly     INFO 【scan-poly : 11 秒】
+23:56:09 scan-poly     INFO 【scan-poly : 10 秒】
+23:56:10 scan-poly     INFO 【scan-poly : 9 秒】
+23:56:11 scan-poly     INFO 【scan-poly : 8 秒】
+23:56:12 scan-poly     INFO 【scan-poly : 7 秒】
+23:56:13 scan-poly     INFO 【scan-poly : 6 秒】
+23:56:14 scan-poly     INFO 【scan-poly : 5 秒】
+23:56:15 scan-poly     INFO 【scan-poly : 4 秒】
+23:56:16 scan-poly     INFO 【scan-poly : 3 秒】
+23:56:17 scan-poly     INFO 【scan-poly : 2 秒】
+23:56:18 scan-poly     INFO 【scan-poly : 1 秒】
+23:56:18 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:56:18 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:56:19 scan-poly     INFO 【scan-poly : 0 秒】
+23:56:19 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:56:19 scan-poly     INFO ==>>无符合条件的数据
+23:56:20 scan-poly     INFO 【scan-poly : 34 秒】
+23:56:20 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:56:20 scan-poly     INFO ==>>无符合条件的数据
+23:56:20 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:56:21 scan-poly     INFO 【scan-poly : 33 秒】
+23:56:22 scan-poly     INFO 【scan-poly : 32 秒】
+23:56:23 scan-poly     INFO 【scan-poly : 31 秒】
+23:56:24 scan-poly     INFO 【scan-poly : 30 秒】
+23:56:25 scan-poly     INFO 【scan-poly : 29 秒】
+23:56:26 scan-poly     INFO 【scan-poly : 28 秒】
+23:56:27 scan-poly     INFO 【scan-poly : 27 秒】
+23:56:28 scan-poly     INFO 【scan-poly : 26 秒】
+23:56:29 scan-poly     INFO 【scan-poly : 25 秒】
+23:56:30 scan-poly     INFO 【scan-poly : 24 秒】
+23:56:31 scan-poly     INFO 【scan-poly : 23 秒】
+23:56:32 scan-poly     INFO 【scan-poly : 22 秒】
+23:56:33 scan-poly     INFO 【scan-poly : 21 秒】
+23:56:34 scan-poly     INFO 【scan-poly : 20 秒】
+23:56:35 scan-poly     INFO 【scan-poly : 19 秒】
+23:56:36 scan-poly     INFO 【scan-poly : 18 秒】
+23:56:37 scan-poly     INFO 【scan-poly : 17 秒】
+23:56:38 scan-poly     INFO 【scan-poly : 16 秒】
+23:56:39 scan-poly     INFO 【scan-poly : 15 秒】
+23:56:40 scan-poly     INFO 【scan-poly : 14 秒】
+23:56:41 scan-poly     INFO 【scan-poly : 13 秒】
+23:56:42 scan-poly     INFO 【scan-poly : 12 秒】
+23:56:43 scan-poly     INFO 【scan-poly : 11 秒】
+23:56:44 scan-poly     INFO 【scan-poly : 10 秒】
+23:56:45 scan-poly     INFO 【scan-poly : 9 秒】
+23:56:46 scan-poly     INFO 【scan-poly : 8 秒】
+23:56:47 scan-poly     INFO 【scan-poly : 7 秒】
+23:56:48 scan-poly     INFO 【scan-poly : 6 秒】
+23:56:49 scan-poly     INFO 【scan-poly : 5 秒】
+23:56:50 scan-poly     INFO 【scan-poly : 4 秒】
+23:56:51 scan-poly     INFO 【scan-poly : 3 秒】
+23:56:52 scan-poly     INFO 【scan-poly : 2 秒】
+23:56:53 scan-poly     INFO 【scan-poly : 1 秒】
+23:56:53 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:56:53 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:56:54 scan-poly     INFO 【scan-poly : 0 秒】
+23:56:54 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:56:54 scan-poly     INFO ==>>无符合条件的数据
+23:56:54 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:56:54 scan-poly     INFO ==>>无符合条件的数据
+23:56:55 scan-poly     INFO 【scan-poly : 34 秒】
+23:56:55 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:56:56 scan-poly     INFO 【scan-poly : 33 秒】
+23:56:57 scan-poly     INFO 【scan-poly : 32 秒】
+23:56:58 scan-poly     INFO 【scan-poly : 31 秒】
+23:56:59 scan-poly     INFO 【scan-poly : 30 秒】
+23:57:00 scan-poly     INFO 【scan-poly : 29 秒】
+23:57:01 scan-poly     INFO 【scan-poly : 28 秒】
+23:57:02 scan-poly     INFO 【scan-poly : 27 秒】
+23:57:03 scan-poly     INFO 【scan-poly : 26 秒】
+23:57:04 scan-poly     INFO 【scan-poly : 25 秒】
+23:57:05 scan-poly     INFO 【scan-poly : 24 秒】
+23:57:06 scan-poly     INFO 【scan-poly : 23 秒】
+23:57:07 scan-poly     INFO 【scan-poly : 22 秒】
+23:57:08 scan-poly     INFO 【scan-poly : 21 秒】
+23:57:09 scan-poly     INFO 【scan-poly : 20 秒】
+23:57:10 scan-poly     INFO 【scan-poly : 19 秒】
+23:57:11 scan-poly     INFO 【scan-poly : 18 秒】
+23:57:12 scan-poly     INFO 【scan-poly : 17 秒】
+23:57:13 scan-poly     INFO 【scan-poly : 16 秒】
+23:57:14 scan-poly     INFO 【scan-poly : 15 秒】
+23:57:15 scan-poly     INFO 【scan-poly : 14 秒】
+23:57:16 scan-poly     INFO 【scan-poly : 13 秒】
+23:57:17 scan-poly     INFO 【scan-poly : 12 秒】
+23:57:18 scan-poly     INFO 【scan-poly : 11 秒】
+23:57:19 scan-poly     INFO 【scan-poly : 10 秒】
+23:57:20 scan-poly     INFO 【scan-poly : 9 秒】
+23:57:21 scan-poly     INFO 【scan-poly : 8 秒】
+23:57:22 scan-poly     INFO 【scan-poly : 7 秒】
+23:57:23 scan-poly     INFO 【scan-poly : 6 秒】
+23:57:24 scan-poly     INFO 【scan-poly : 5 秒】
+23:57:25 scan-poly     INFO 【scan-poly : 4 秒】
+23:57:26 scan-poly     INFO 【scan-poly : 3 秒】
+23:57:27 scan-poly     INFO 【scan-poly : 2 秒】
+23:57:28 scan-poly     INFO 【scan-poly : 1 秒】
+23:57:28 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:57:28 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:57:29 scan-poly     INFO 【scan-poly : 0 秒】
+23:57:29 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:57:30 scan-poly  WARNING                     
+23:57:30 scan-poly     INFO ==>价格不满足，跳过!bitcoin-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:57:30 scan-poly     INFO 【scan-poly : 34 秒】
+23:57:30 scan-poly  WARNING                     
+23:57:30 scan-poly     INFO ==>价格不满足，跳过!ethereum-up-or-down-january-16-10am-et, DOWN:0.998, UP:0.007
+23:57:31 scan-poly     INFO 【scan-poly : 33 秒】
+23:57:31 scan-poly  WARNING                     
+23:57:31 scan-poly     INFO ==>价格不满足，跳过!solana-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:57:32 scan-poly  WARNING                     
+23:57:32 scan-poly     INFO ==>价格不满足，跳过!xrp-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:57:32 scan-poly     INFO 【scan-poly : 32 秒】
+23:57:32 scan-poly  WARNING                     
+23:57:32 scan-poly     INFO ==>价格不满足，跳过!sol-updown-15m-1768578300, DOWN:0.72, UP:0.32
+23:57:33 scan-poly     INFO 【scan-poly : 31 秒】
+23:57:33 scan-poly  WARNING                     
+23:57:33 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-15m-1768578300, DOWN:0.82, UP:0.21
+23:57:33 scan-poly  WARNING                     
+23:57:33 scan-poly     INFO ==>价格不满足，跳过!btc-updown-15m-1768578300, DOWN:0.12, UP:0.88
+23:57:34 scan-poly     INFO 【scan-poly : 30 秒】
+23:57:34 scan-poly  WARNING                     
+23:57:34 scan-poly     INFO ==>价格不满足，跳过!eth-updown-15m-1768578300, DOWN:0.85, UP:0.17
+23:57:35 scan-poly     INFO 【scan-poly : 29 秒】
+23:57:35 scan-poly  WARNING                     
+23:57:35 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:57:35 scan-poly  WARNING                     
+23:57:35 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:57:36 scan-poly     INFO 【scan-poly : 28 秒】
+23:57:36 scan-poly  WARNING                     
+23:57:36 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:57:37 scan-poly  WARNING                     
+23:57:37 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:57:37 scan-poly     INFO 【scan-poly : 27 秒】
+23:57:37 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:57:37 scan-poly     INFO ==>>无符合条件的数据
+23:57:37 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:57:38 scan-poly     INFO 【scan-poly : 26 秒】
+23:57:39 scan-poly     INFO 【scan-poly : 25 秒】
+23:57:40 scan-poly     INFO 【scan-poly : 24 秒】
+23:57:41 scan-poly     INFO 【scan-poly : 23 秒】
+23:57:42 scan-poly     INFO 【scan-poly : 22 秒】
+23:57:43 scan-poly     INFO 【scan-poly : 21 秒】
+23:57:44 scan-poly     INFO 【scan-poly : 20 秒】
+23:57:45 scan-poly     INFO 【scan-poly : 19 秒】
+23:57:46 scan-poly     INFO 【scan-poly : 18 秒】
+23:57:47 scan-poly     INFO 【scan-poly : 17 秒】
+23:57:48 scan-poly     INFO 【scan-poly : 16 秒】
+23:57:49 scan-poly     INFO 【scan-poly : 15 秒】
+23:57:50 scan-poly     INFO 【scan-poly : 14 秒】
+23:57:51 scan-poly     INFO 【scan-poly : 13 秒】
+23:57:52 scan-poly     INFO 【scan-poly : 12 秒】
+23:57:53 scan-poly     INFO 【scan-poly : 11 秒】
+23:57:54 scan-poly     INFO 【scan-poly : 10 秒】
+23:57:55 scan-poly     INFO 【scan-poly : 9 秒】
+23:57:56 scan-poly     INFO 【scan-poly : 8 秒】
+23:57:57 scan-poly     INFO 【scan-poly : 7 秒】
+23:57:58 scan-poly     INFO 【scan-poly : 6 秒】
+23:57:59 scan-poly     INFO 【scan-poly : 5 秒】
+23:58:00 scan-poly     INFO 【scan-poly : 4 秒】
+23:58:01 scan-poly     INFO 【scan-poly : 3 秒】
+23:58:02 scan-poly     INFO 【scan-poly : 2 秒】
+23:58:03 scan-poly     INFO 【scan-poly : 1 秒】
+23:58:04 scan-poly     INFO    💰 当前余额: $80.613758,预留金额:10.0
+23:58:04 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:58:04 scan-poly     INFO 【scan-poly : 0 秒】
+23:58:04 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:58:05 scan-poly  WARNING                     
+23:58:05 scan-poly     INFO ==>价格不满足，跳过!bitcoin-up-or-down-january-16-10am-et, DOWN:0.999, UP:0.01
+23:58:05 scan-poly     INFO 【scan-poly : 34 秒】
+23:58:05 scan-poly  WARNING                     
+23:58:05 scan-poly     INFO ==>价格不满足，跳过!ethereum-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:06 scan-poly     INFO 【scan-poly : 33 秒】
+23:58:06 scan-poly  WARNING                     
+23:58:06 scan-poly     INFO ==>价格不满足，跳过!solana-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:07 scan-poly  WARNING                     
+23:58:07 scan-poly     INFO ==>价格不满足，跳过!xrp-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:07 scan-poly     INFO 【scan-poly : 32 秒】
+23:58:07 scan-poly  WARNING                     
+23:58:07 scan-poly     INFO ==>价格不满足，跳过!sol-updown-15m-1768578300, DOWN:0.67, UP:0.35
+23:58:08 scan-poly     INFO 【scan-poly : 31 秒】
+23:58:08 scan-poly  WARNING                     
+23:58:08 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-15m-1768578300, DOWN:0.77, UP:0.25
+23:58:09 scan-poly  WARNING                     
+23:58:09 scan-poly  WARNING ---------------------------------------------------
+23:58:09 scan-poly  WARNING =========>> 价格满足，准备下单!btc-updown-15m-1768578300   << ============
+23:58:09 scan-poly  WARNING ==>> 市场ID: 1191010/【btc-updown-15m-1768578300 】 UP最佳:0.97, DOWN最佳:0.04
+23:58:09 scan-poly     INFO 【scan-poly : 30 秒】
+23:58:10 scan-poly     INFO 【scan-poly : 29 秒】
+23:58:11 scan-poly  WARNING ===>提交订单:   84833511125473042710564427959428779370014731975809054419160566685741793971895, $0.9700 x 5.0 shares
+23:58:11 scan-poly     INFO 【scan-poly : 28 秒】
+23:58:11 scan-poly  WARNING                     
+23:58:11 scan-poly     INFO ==>价格不满足，跳过!eth-updown-15m-1768578300, DOWN:0.8, UP:0.21
+23:58:12 scan-poly     INFO 【scan-poly : 27 秒】
+23:58:12 scan-poly  WARNING                     
+23:58:12 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:12 scan-poly  WARNING                     
+23:58:12 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:13 scan-poly     INFO 【scan-poly : 26 秒】
+23:58:13 scan-poly  WARNING                     
+23:58:13 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:14 scan-poly  WARNING                     
+23:58:14 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:14 scan-poly     INFO 【scan-poly : 25 秒】
+23:58:14 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:58:14 scan-poly     INFO ==>>无符合条件的数据
+23:58:14 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:58:15 scan-poly     INFO 【scan-poly : 24 秒】
+23:58:16 scan-poly     INFO 【scan-poly : 23 秒】
+23:58:17 scan-poly     INFO 【scan-poly : 22 秒】
+23:58:18 scan-poly     INFO 【scan-poly : 21 秒】
+23:58:19 scan-poly     INFO 【scan-poly : 20 秒】
+23:58:20 scan-poly     INFO 【scan-poly : 19 秒】
+23:58:21 scan-poly     INFO 【scan-poly : 18 秒】
+23:58:22 scan-poly     INFO 【scan-poly : 17 秒】
+23:58:23 scan-poly     INFO 【scan-poly : 16 秒】
+23:58:24 scan-poly     INFO 【scan-poly : 15 秒】
+23:58:25 scan-poly     INFO 【scan-poly : 14 秒】
+23:58:26 scan-poly     INFO 【scan-poly : 13 秒】
+23:58:27 scan-poly     INFO 【scan-poly : 12 秒】
+23:58:28 scan-poly     INFO 【scan-poly : 11 秒】
+23:58:29 scan-poly     INFO 【scan-poly : 10 秒】
+23:58:30 scan-poly     INFO 【scan-poly : 9 秒】
+23:58:31 scan-poly     INFO 【scan-poly : 8 秒】
+23:58:32 scan-poly     INFO 【scan-poly : 7 秒】
+23:58:33 scan-poly     INFO 【scan-poly : 6 秒】
+23:58:34 scan-poly     INFO 【scan-poly : 5 秒】
+23:58:35 scan-poly     INFO 【scan-poly : 4 秒】
+23:58:36 scan-poly     INFO 【scan-poly : 3 秒】
+23:58:37 scan-poly     INFO 【scan-poly : 2 秒】
+23:58:38 scan-poly     INFO 【scan-poly : 1 秒】
+23:58:39 scan-poly     INFO    💰 当前余额: $75.763758,预留金额:10.0
+23:58:39 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:58:39 scan-poly     INFO 【scan-poly : 0 秒】
+23:58:39 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:58:40 scan-poly     INFO 【scan-poly : 34 秒】
+23:58:40 scan-poly  WARNING                     
+23:58:40 scan-poly     INFO ==>价格不满足，跳过!bitcoin-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:41 scan-poly  WARNING                     
+23:58:41 scan-poly     INFO ==>价格不满足，跳过!ethereum-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:41 scan-poly     INFO 【scan-poly : 33 秒】
+23:58:41 scan-poly  WARNING                     
+23:58:41 scan-poly     INFO ==>价格不满足，跳过!solana-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:42 scan-poly     INFO 【scan-poly : 32 秒】
+23:58:42 scan-poly  WARNING                     
+23:58:42 scan-poly     INFO ==>价格不满足，跳过!xrp-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:58:43 scan-poly  WARNING                     
+23:58:43 scan-poly     INFO ==>价格不满足，跳过!sol-updown-15m-1768578300, DOWN:0.78, UP:0.24
+23:58:43 scan-poly     INFO 【scan-poly : 31 秒】
+23:58:43 scan-poly  WARNING                     
+23:58:43 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-15m-1768578300, DOWN:0.92, UP:0.09
+23:58:44 scan-poly     INFO 【scan-poly : 30 秒】
+23:58:44 scan-poly  WARNING                     
+23:58:44 scan-poly  WARNING ---------------------------------------------------
+23:58:44 scan-poly  WARNING =========>> 价格满足，准备下单!btc-updown-15m-1768578300   << ============
+23:58:44 scan-poly  WARNING ==>> 市场ID: 1191010/【btc-updown-15m-1768578300 】 UP最佳:0.97, DOWN最佳:0.04
+23:58:44 scan-poly  WARNING ==>> 交易记录存在：dceb5a6b-4dab-40eb-b3c1-105a55f9e23e,BUY,0.97,5,跳过下单
+23:58:45 scan-poly     INFO 【scan-poly : 29 秒】
+23:58:45 scan-poly  WARNING                     
+23:58:45 scan-poly     INFO ==>价格不满足，跳过!eth-updown-15m-1768578300, DOWN:0.86, UP:0.15
+23:58:46 scan-poly  WARNING                     
+23:58:46 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:46 scan-poly     INFO 【scan-poly : 28 秒】
+23:58:46 scan-poly  WARNING                     
+23:58:46 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:47 scan-poly     INFO 【scan-poly : 27 秒】
+23:58:47 scan-poly  WARNING                     
+23:58:47 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:48 scan-poly  WARNING                     
+23:58:48 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:58:48 scan-poly     INFO 【scan-poly : 26 秒】
+23:58:48 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:58:48 scan-poly     INFO ==>>无符合条件的数据
+23:58:48 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:58:49 scan-poly     INFO 【scan-poly : 25 秒】
+23:58:50 scan-poly     INFO 【scan-poly : 24 秒】
+23:58:51 scan-poly     INFO 【scan-poly : 23 秒】
+23:58:52 scan-poly     INFO 【scan-poly : 22 秒】
+23:58:53 scan-poly     INFO 【scan-poly : 21 秒】
+23:58:54 scan-poly     INFO 【scan-poly : 20 秒】
+23:58:55 scan-poly     INFO 【scan-poly : 19 秒】
+23:58:56 scan-poly     INFO 【scan-poly : 18 秒】
+23:58:57 scan-poly     INFO 【scan-poly : 17 秒】
+23:58:58 scan-poly     INFO 【scan-poly : 16 秒】
+23:58:59 scan-poly     INFO 【scan-poly : 15 秒】
+23:59:00 scan-poly     INFO 【scan-poly : 14 秒】
+23:59:01 scan-poly     INFO 【scan-poly : 13 秒】
+23:59:02 scan-poly     INFO 【scan-poly : 12 秒】
+23:59:03 scan-poly     INFO 【scan-poly : 11 秒】
+23:59:04 scan-poly     INFO 【scan-poly : 10 秒】
+23:59:05 scan-poly     INFO 【scan-poly : 9 秒】
+23:59:06 scan-poly     INFO 【scan-poly : 8 秒】
+23:59:07 scan-poly     INFO 【scan-poly : 7 秒】
+23:59:08 scan-poly     INFO 【scan-poly : 6 秒】
+23:59:09 scan-poly     INFO 【scan-poly : 5 秒】
+23:59:10 scan-poly     INFO 【scan-poly : 4 秒】
+23:59:11 scan-poly     INFO 【scan-poly : 3 秒】
+23:59:12 scan-poly     INFO 【scan-poly : 2 秒】
+23:59:13 scan-poly     INFO 【scan-poly : 1 秒】
+23:59:13 scan-poly     INFO    💰 当前余额: $75.763758,预留金额:10.0
+23:59:13 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:59:14 scan-poly     INFO 【scan-poly : 0 秒】
+23:59:14 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:59:15 scan-poly     INFO 【scan-poly : 34 秒】
+23:59:15 scan-poly  WARNING                     
+23:59:15 scan-poly     INFO ==>价格不满足，跳过!bitcoin-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:59:16 scan-poly  WARNING                     
+23:59:16 scan-poly     INFO ==>价格不满足，跳过!ethereum-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:59:16 scan-poly     INFO 【scan-poly : 33 秒】
+23:59:16 scan-poly  WARNING                     
+23:59:16 scan-poly     INFO ==>价格不满足，跳过!solana-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:59:17 scan-poly     INFO 【scan-poly : 32 秒】
+23:59:17 scan-poly  WARNING                     
+23:59:17 scan-poly     INFO ==>价格不满足，跳过!xrp-up-or-down-january-16-10am-et, DOWN:1.0, UP:0.001
+23:59:18 scan-poly  WARNING                     
+23:59:18 scan-poly     INFO ==>价格不满足，跳过!sol-updown-15m-1768578300, DOWN:0.86, UP:0.16
+23:59:18 scan-poly     INFO 【scan-poly : 31 秒】
+23:59:18 scan-poly  WARNING                     
+23:59:18 scan-poly  WARNING ---------------------------------------------------
+23:59:18 scan-poly  WARNING =========>> 价格满足，准备下单!xrp-updown-15m-1768578300   << ============
+23:59:18 scan-poly  WARNING ==>> 市场ID: 1191009/【xrp-updown-15m-1768578300 】 DOWN最佳:0.98, UP最佳:0.03
+23:59:19 scan-poly     INFO 【scan-poly : 30 秒】
+23:59:20 scan-poly     INFO 【scan-poly : 29 秒】
+23:59:20 scan-poly  WARNING ===>提交订单:   70761900818057494521875249354034701101263198768824387477920023291341606992128, $0.9800 x 5.0 shares
+23:59:21 scan-poly  WARNING                     
+23:59:21 scan-poly     INFO ==>价格不满足，跳过!btc-updown-15m-1768578300, DOWN:0.02, UP:0.99
+23:59:21 scan-poly     INFO 【scan-poly : 28 秒】
+23:59:21 scan-poly  WARNING                     
+23:59:21 scan-poly  WARNING ---------------------------------------------------
+23:59:21 scan-poly  WARNING =========>> 价格满足，准备下单!eth-updown-15m-1768578300   << ============
+23:59:21 scan-poly  WARNING ==>> 市场ID: 1191011/【eth-updown-15m-1768578300 】 DOWN最佳:0.98, UP最佳:0.04
+23:59:22 scan-poly     INFO 【scan-poly : 27 秒】
+23:59:23 scan-poly     INFO 【scan-poly : 26 秒】
+23:59:23 scan-poly  WARNING ===>提交订单:   57138665393521919232766283920973128078129590815333624699341217628721582193745, $0.9800 x 5.0 shares
+23:59:24 scan-poly     INFO 【scan-poly : 25 秒】
+23:59:24 scan-poly  WARNING                     
+23:59:24 scan-poly     INFO ==>价格不满足，跳过!btc-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:59:25 scan-poly  WARNING                     
+23:59:25 scan-poly     INFO ==>价格不满足，跳过!sol-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:59:25 scan-poly     INFO 【scan-poly : 24 秒】
+23:59:25 scan-poly  WARNING                     
+23:59:25 scan-poly     INFO ==>价格不满足，跳过!eth-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:59:26 scan-poly     INFO 【scan-poly : 23 秒】
+23:59:26 scan-poly  WARNING                     
+23:59:26 scan-poly     INFO ==>价格不满足，跳过!xrp-updown-5m-1768578900, DOWN:0.0, UP:0.0
+23:59:26 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:59:26 scan-poly     INFO ==>>无符合条件的数据
+23:59:26 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:59:27 scan-poly     INFO 【scan-poly : 22 秒】
+23:59:28 scan-poly     INFO 【scan-poly : 21 秒】
+23:59:29 scan-poly     INFO 【scan-poly : 20 秒】
+23:59:30 scan-poly     INFO 【scan-poly : 19 秒】
+23:59:31 scan-poly     INFO 【scan-poly : 18 秒】
+23:59:32 scan-poly     INFO 【scan-poly : 17 秒】
+23:59:33 scan-poly     INFO 【scan-poly : 16 秒】
+23:59:34 scan-poly     INFO 【scan-poly : 15 秒】
+23:59:35 scan-poly     INFO 【scan-poly : 14 秒】
+23:59:36 scan-poly     INFO 【scan-poly : 13 秒】
+23:59:37 scan-poly     INFO 【scan-poly : 12 秒】
+23:59:38 scan-poly     INFO 【scan-poly : 11 秒】
+23:59:39 scan-poly     INFO 【scan-poly : 10 秒】
+23:59:40 scan-poly     INFO 【scan-poly : 9 秒】
+23:59:41 scan-poly     INFO 【scan-poly : 8 秒】
+23:59:42 scan-poly     INFO 【scan-poly : 7 秒】
+23:59:43 scan-poly     INFO 【scan-poly : 6 秒】
+23:59:44 scan-poly     INFO 【scan-poly : 5 秒】
+23:59:45 scan-poly     INFO 【scan-poly : 4 秒】
+23:59:46 scan-poly     INFO 【scan-poly : 3 秒】
+23:59:47 scan-poly     INFO 【scan-poly : 2 秒】
+23:59:48 scan-poly     INFO 【scan-poly : 1 秒】
+23:59:48 scan-poly     INFO    💰 当前余额: $65.963758,预留金额:10.0
+23:59:48 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+23:59:49 scan-poly     INFO ==> 查询第1页数据】数量:500
+23:59:49 scan-poly     INFO ==>>无符合条件的数据
+23:59:49 scan-poly     INFO 【scan-poly : 0 秒】
+23:59:49 scan-poly     INFO ==> 查询第2页数据】数量:166
+23:59:49 scan-poly     INFO ==>>无符合条件的数据
+23:59:50 scan-poly     INFO ==> 查询第3页数据】数量:0
+23:59:50 scan-poly     INFO 【scan-poly : 34 秒】
+23:59:51 scan-poly     INFO 【scan-poly : 33 秒】
+23:59:52 scan-poly     INFO 【scan-poly : 32 秒】
+23:59:53 scan-poly     INFO 【scan-poly : 31 秒】
+23:59:54 scan-poly     INFO 【scan-poly : 30 秒】
+23:59:55 scan-poly     INFO 【scan-poly : 29 秒】
+23:59:56 scan-poly     INFO 【scan-poly : 28 秒】
+23:59:57 scan-poly     INFO 【scan-poly : 27 秒】
+23:59:58 scan-poly     INFO 【scan-poly : 26 秒】
+23:59:59 scan-poly     INFO 【scan-poly : 25 秒】
+00:00:00 scan-poly     INFO 【scan-poly : 24 秒】
+00:00:01 scan-poly     INFO 【scan-poly : 23 秒】
+00:00:02 scan-poly     INFO 【scan-poly : 22 秒】
+00:00:03 scan-poly     INFO 【scan-poly : 21 秒】
+00:00:04 scan-poly     INFO 【scan-poly : 20 秒】
+00:00:05 scan-poly     INFO 【scan-poly : 19 秒】
+00:00:06 scan-poly     INFO 【scan-poly : 18 秒】
+00:00:07 scan-poly     INFO 【scan-poly : 17 秒】
+00:00:08 scan-poly     INFO 【scan-poly : 16 秒】
+00:00:09 scan-poly     INFO 【scan-poly : 15 秒】
+00:00:10 scan-poly     INFO 【scan-poly : 14 秒】
+00:00:11 scan-poly     INFO 【scan-poly : 13 秒】
+00:00:12 scan-poly     INFO 【scan-poly : 12 秒】
+00:00:13 scan-poly     INFO 【scan-poly : 11 秒】
+00:00:14 scan-poly     INFO 【scan-poly : 10 秒】
+00:00:15 scan-poly     INFO 【scan-poly : 9 秒】
+00:00:16 scan-poly     INFO 【scan-poly : 8 秒】
+00:00:17 scan-poly     INFO 【scan-poly : 7 秒】
+00:00:18 scan-poly     INFO 【scan-poly : 6 秒】
+00:00:19 scan-poly     INFO 【scan-poly : 5 秒】
+00:00:20 scan-poly     INFO 【scan-poly : 4 秒】
+00:00:21 scan-poly     INFO 【scan-poly : 3 秒】
+00:00:22 scan-poly     INFO 【scan-poly : 2 秒】
+00:00:23 scan-poly     INFO 【scan-poly : 1 秒】
+00:00:23 scan-poly     INFO    💰 当前余额: $65.963758,预留金额:10.0
+00:00:23 scan-poly     INFO ==> 启动扫描,2026-01-16,2026-01-17
+00:00:24 scan-poly     INFO 【scan-poly : 0 秒】
+00:00:25 scan-poly     INFO ==> 查询第1页数据】数量:500
+00:00:25 scan-poly     INFO ==>>无符合条件的数据
+00:00:25 scan-poly     INFO 【scan-poly : 34 秒】
+00:00:26 scan-poly     INFO ==> 查询第2页数据】数量:162
+00:00:26 scan-poly     INFO 【scan-poly : 33 秒】
+00:00:26 scan-poly     INFO ==>>无符合条件的数据
+00:00:26 scan-poly     INFO ==> 查询第3页数据】数量:0
+00:00:27 scan-poly     INFO 【scan-poly : 32 秒】
+00:00:28 scan-poly     INFO 【scan-poly : 31 秒】
+00:00:29 scan-poly     INFO 【scan-poly : 30 秒】
+00:00:30 scan-poly     INFO 【scan-poly : 29 秒】
+00:00:31 scan-poly     INFO 【scan-poly : 28 秒】
+00:00:32 scan-poly     INFO 【scan-poly : 27 秒】
+00:00:33 scan-poly     INFO 【scan-poly : 26 秒】
+00:00:34 scan-poly     INFO 【scan-poly : 25 秒】
+00:00:35 scan-poly     INFO 【scan-poly : 24 秒】
+00:00:36 scan-poly     INFO 【scan-poly : 23 秒】
+00:00:37 scan-poly     INFO 【scan-poly : 22 秒】
+00:00:38 scan-poly     INFO 【scan-poly : 21 秒】
+00:00:39 scan-poly     INFO 【scan-poly : 20 秒】
+00:00:40 scan-poly     INFO 【scan-poly : 19 秒】
+00:00:41 scan-poly     INFO 【scan-poly : 18 秒】
+00:00:42 scan-poly     INFO 【scan-poly : 17 秒】
+00:00:43 scan-poly     INFO 【scan-poly : 16 秒】
+00:00:44 scan-poly     INFO 【scan-poly : 15 秒】
+00:00:45 scan-poly     INFO 【scan-poly : 14 秒】
+00:00:46 scan-poly     INFO 【scan-poly : 13 秒】
+00:00:47 scan-poly     INFO 【scan-poly : 12 秒】
+00:00:48 scan-poly     INFO 【scan-poly : 11 秒】
+00:00:49 scan-poly     INFO 【scan-poly : 10 秒】
+00:00:50 scan-poly     INFO 【scan-poly : 9 秒】
+00:00:51 scan-poly     INFO 【scan-poly : 8 秒】
+00:00:52 scan-poly     INFO 【scan-poly : 7 秒】
+00:00:53 scan-poly     INFO 【scan-poly : 6 秒】
+00:00:54 scan-poly     INFO 【scan-poly : 5 秒】
+00:00:55 scan-poly     INFO 【scan-poly : 4 秒】

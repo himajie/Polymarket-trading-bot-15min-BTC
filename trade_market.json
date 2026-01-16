@@ -1,0 +1,59 @@
+{
+  "enable_order_book": true,
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "accepting_orders": true,
+  "accepting_order_timestamp": "2025-12-23T00:57:49Z",
+  "minimum_order_size": 5,
+  "minimum_tick_size": 0.01,
+  "condition_id": "0xd595eb9b81885ff018738300c79047e3ec89e87294424f57a29a7fa9162bf116",
+  "question_id": "0x4033cdfd81cca5ab03993e1d5a802422438f5860442d42cfd713019575d82ff6",
+  "question": "Will Trump acquire Greenland before 2027?",
+  "description": "This market will resolve to \"Yes\" if the United States officially announces that Greenland will come under US sovereignty by December 31, 2026, 11:59 PM ET. Otherwise this market will resolve to \"No\".\n\nSovereignty is defined as the transfer of the majority of the territory of Greenland from its current status as an autonomous territory within the Kingdom of Denmark to being under the formal governance or jurisdiction of the United States, either as a state, territory, or other classification within the US system.\n\nAn official announcement made by the United States and Denmark that Greenland will come under US sovereignty will qualify, even if the actual transfer of sovereignty is yet to occur. Only announcements of official agreements or actions (e.g. executive order, signed legislation, etc.) will count - mere posts on Social Media will not.\n\nThe resolution source for this market will be official information from the governments of the US, Greenland, and Denmark, however a consensus of credible reporting confirming that Greenland has come under U.S. sovereignty will also qualify.",
+  "market_slug": "will-trump-acquire-greenland-before-2027",
+  "end_date_iso": "2026-12-31T00:00:00Z",
+  "game_start_time": null,
+  "seconds_delay": 0,
+  "fpmm": "",
+  "maker_base_fee": 0,
+  "taker_base_fee": 0,
+  "notifications_enabled": true,
+  "neg_risk": false,
+  "neg_risk_market_id": "",
+  "neg_risk_request_id": "",
+  "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-acquire-greenland-in-2025-5ZDkcIGhdBMW.jpg",
+  "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-acquire-greenland-in-2025-5ZDkcIGhdBMW.jpg",
+  "rewards": {
+    "rates": [
+      {
+        "asset_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "rewards_daily_rate": 200
+      }
+    ],
+    "min_size": 200,
+    "max_spread": 2.5
+  },
+  "is_50_50_outcome": false,
+  "tokens": [
+    {
+      "token_id": "5161623255678193352839985156330393796378434470119114669671615782853260939535",
+      "outcome": "Yes",
+      "price": 0.175,
+      "winner": false
+    },
+    {
+      "token_id": "57216272564529548464686463691236811991956032201293786790337952253964682584376",
+      "outcome": "No",
+      "price": 0.825,
+      "winner": false
+    }
+  ],
+  "tags": [
+    "Politics",
+    "Trump",
+    "Denmark",
+    "Greenland",
+    "Foreign Policy"
+  ]
+}

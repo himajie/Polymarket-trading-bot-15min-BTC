@@ -260,6 +260,10 @@ def get_trades(settings: Settings,market: str) -> list:
     params = TradeParams(market=market)
     return client.get_trades(params)
 
+def get_market(settings: Settings,conditionId: str) -> dict:
+    client = get_client(settings)
+    return client.get_market(conditionId)
+
 def get_trades_page(settings: Settings,before:int,after:int) -> list:
     client = get_client(settings)
     params = TradeParams(before=before,after=after)

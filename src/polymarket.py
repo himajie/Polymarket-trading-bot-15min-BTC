@@ -32,7 +32,7 @@ class SeekPolymarket():
     def __init__(self,logger,settings):
         self.settings = settings
         self.client = get_client(settings)
-
+        self.event_tags = ['21']
         self.logger=logger 
         CLIENT_CONFIG = {
             'rate_limit_seconds': 0.05,
@@ -88,7 +88,18 @@ class SeekPolymarket():
         except Exception as e:
             return float(0)
             pass
-
+    def get_event_tags(self,event_id):
+        try:
+            params = {}
+            response = self.http_client.get(f'https://gamma-api.polymarket.com/events/{event_id}/tags',params=params)
+            response.raise_for_status() 
+            df=pd.DataFrame(response.json(),columns=['id','label'])
+            if df.empty:
+                return []
+            return df['id'].drop_duplicates().tolist()
+        except Exception as e:
+            return []
+            pass
     def reslove(self,dfs):
         if dfs.empty:
             return
@@ -109,25 +120,16 @@ class SeekPolymarket():
 
 
         # df = df[(df['end_second'] > 60) & (df['end_second'] < 300) & (df['market_second'] > (60*60*6))] #10分钟
-        df = df[(df['end_second'] > 60) & (df['end_second'] < 3600) ]
+        df = df[(df['end_second'] > self.settings.scan_befor_sec) & (df['end_second'] < self.settings.scan_after_sec) ] #最后3分钟
         if df.empty:
             self.logger.info("==>>无符合条件的数据")  
             return 
         
-      
-        # time_diff = current_time - df['end_time']
-        # # 结束时间大于3分钟且小于等于30分钟
-        # mask = (time_diff > pd.Timedelta(minutes=3)) & (time_diff <= pd.Timedelta(minutes=60))
-        # df = df[mask]
-        # if df.empty:
-        #     self.logger.info("==>>无符合条件的数据")   
-        #     return
-
-        
         # df[['token-yes', 'token-no']] = df['clobTokenIds'].apply(lambda x: pd.Series(x) if isinstance(x, list) else pd.Series([None, None]))
         df['clobTokens'] = df['clobTokenIds'].apply(lambda x: json.loads(x) if isinstance(x, str) else x)
 
-        df['event_slug'] = df['events'].apply(lambda x: x.get('slug') if isinstance(x, dict) else None)      
+        df['event_slug'] = df['events'].apply(lambda x: x.get('slug') if isinstance(x, dict) else None)    
+        df['event_id'] = df['events'].apply(lambda x: x.get('id') if isinstance(x, dict) else None)    
         df[['token-yes', 'token-no']] = df['clobTokens'].apply(lambda x: pd.Series([x[0], x[1]] if isinstance(x, list) and len(x) >= 2 else [None, None]))
 
         df = df.reset_index(drop=True)
@@ -146,11 +148,11 @@ class SeekPolymarket():
             id =row["id"]
             slug=row["event_slug"]
             conditionId=row["conditionId"]
-
-
-            # trades= get_trades(self.settings) 
-           
-
+            event_id=row['event_id']
+            tags =  self.get_event_tags(event_id)
+            if not any(tag in self.event_tags for tag in tags):
+                continue
+            
             up_price=self.get_price(row["token-yes"])
             down_price=self.get_price(row["token-no"])
             if up_price is None or down_price is None:
@@ -171,7 +173,7 @@ class SeekPolymarket():
                 self.play_order(conditionId,token_id=row["token-no"],price=down_price,size=self.settings.order_size)
             else:
                 self.logger.warning(f" "*20) 
-                self.logger.info(f"==>价格不满足，跳过!{slug}")   
+                self.logger.info(f"==>价格不满足，跳过!{slug}, DOWN:{down_price}, UP:{up_price}")   
                 continue    
     def play_order(self,conditionId:str,token_id:str=None,price:float=None,size:float=None ):
         trades= get_trades(self.settings,market=conditionId)     
@@ -233,6 +235,7 @@ class SeekPolymarket():
                         'offset': page * limit,
                         'order':'id',
                         'ascending':'true',
+                        'tag_id':21, 
                         'closed': 'false',
                         'end_date_min':start_date,
                         'end_date_max':end_date
@@ -255,7 +258,7 @@ class SeekPolymarket():
             self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
                            
 if __name__ == "__main__":
-    logName= "poly-scan"
+    logName= "scan-poly"
     settings = load_settings()
     runnerHelper=RunnerHelper() 
     logConfig=runnerHelper.getLogConfig(logName)
@@ -267,8 +270,9 @@ if __name__ == "__main__":
     # runner.run()
    
     scheduler = BlockingScheduler()
-    # Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
+    Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
     # scheduler.add_job(runner.run, 'cron', second='1,31',name='polymarket')
-    scheduler.add_job(runner.run, 'interval', minutes=1, name=logName,next_run_time=datetime.now() )
+    scheduler.add_job(runner.run, 'interval', seconds=35, name=logName,next_run_time=datetime.now() )
+    # scheduler.add_job(runner.run, 'cron', second='1,31', name=logName)
     scheduler.start()
 

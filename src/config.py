@@ -49,5 +49,11 @@ class Settings:
 
     price_min: float = float(os.getenv("PRICE_MIN", "0.92"))
     price_max: float = float(os.getenv("PRICE_MAX", "0.97"))
+
+    unwind_price : float = float(os.getenv("UNWIND_PRICE", "0.7"))
+
+    scan_befor_sec: int = int(os.getenv("SCAN_BEFOR_SEC", "30"))
+    scan_after_sec: int = int(os.getenv("SCAN_AFTER_SEC", "120"))
+    
 def load_settings() -> Settings:
     return Settings()

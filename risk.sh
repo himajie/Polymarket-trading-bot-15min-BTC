@@ -2,8 +2,8 @@
 
 # start.sh
 APP_DIR="$(cd "$(dirname "$0")" && pwd)"
-LOG_FILE="$APP_DIR/logs/scanner.log"
-PID_FILE="$APP_DIR/scanner.pid"
+LOG_FILE="$APP_DIR/logs/risk.log"
+PID_FILE="$APP_DIR/risk.pid"
 
 start_app() {
     if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
@@ -13,7 +13,7 @@ start_app() {
     
     echo "启动应用..."
     # nohup python3 "$APP_DIR/scanner_mq.py" >> "$LOG_FILE" 2>&1 &
-    nohup python -m src.polymarket > /dev/null 2>&1 &
+    nohup python -m src.risk_poly > /dev/null 2>&1 &
     echo $! > "$PID_FILE"
     echo "应用已启动 (PID: $(cat $PID_FILE))"
 }
