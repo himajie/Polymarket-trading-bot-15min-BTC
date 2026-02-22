@@ -51,6 +51,8 @@ class Settings:
     price_max: float = float(os.getenv("PRICE_MAX", "0.97"))
 
     unwind_price : float = float(os.getenv("UNWIND_PRICE", "0.7"))
+    unwind_scale : float = float(os.getenv("UNWIND_SCALE", "0.8"))
+    
 
     scan_befor_sec: int = int(os.getenv("SCAN_BEFOR_SEC", "30"))
     scan_after_sec: int = int(os.getenv("SCAN_AFTER_SEC", "120"))

@@ -146,7 +146,8 @@ class RiskPolymarket():
                     self.logger.warning(f'==> 价格过低，放弃处理')
                 elif curr_price <= self.settings.unwind_price:
                     self.logger.warning(f'==> 订单价格异常: 强制平仓  平仓价格{curr_price}')
-                    self.sell_order(token_id,price,float(curr_price))  
+                    sell_price = round(self.settings.unwind_scale*curr_price,2) #打折卖掉
+                    self.sell_order(token_id,price,sell_price)  
                 else:
                     self.logger.info(f'==> 订单状态正常')
         except Exception as e:
@@ -167,6 +168,6 @@ if __name__ == "__main__":
     # runner.run()
    
     scheduler = BlockingScheduler()
-    scheduler.add_job(runner.run, 'interval', seconds=10, name=logName,next_run_time=datetime.now() )
+    scheduler.add_job(runner.run, 'interval', seconds=6, name=logName,next_run_time=datetime.now() )
     scheduler.start()
 

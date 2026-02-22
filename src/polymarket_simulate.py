@@ -4,6 +4,7 @@ import requests
 import asyncio
 import logging
 import json
+import pytz
 import pandas as pd
 import numpy as np 
 from datetime import datetime, timedelta,timezone,time
@@ -15,7 +16,7 @@ from .config import load_settings
 from .config_validator import ConfigValidator
 from threading import Thread
 from .runner_utils import RunnerHelper
-# from .logger import setup_logging
+from .mysql_db_utils import MySQLHelper
 from .trading import (
     get_client,
     place_order,
@@ -24,12 +25,12 @@ from .trading import (
     extract_order_id,
     wait_for_terminal_order,
     cancel_orders,
-    get_trades,
-    get_balance,
+    get_trades
 )
 
 class SeekPolymarket():
-    def __init__(self,logger,settings):
+    def __init__(self,logger,settings,dbHelper):
+        self.dbHelper=dbHelper
         self.settings = settings
         self.client = get_client(settings)
         self.event_tags = ['21']
@@ -46,9 +47,6 @@ class SeekPolymarket():
         # 获取全局客户端实例
         self.http_client = ConfigurableHTTPClient.get_instance(CLIENT_CONFIG)
         settings = load_settings()
-        # Setup logging with proper verbosity
-        # setup_logging(verbose=settings.verbose, use_rich=settings.use_rich_output)
-
 
     def _levels_to_tuples(self, levels) -> list[tuple[float, float]]:
         """Convert OrderSummary-like objects into (price, size) tuples."""
@@ -83,7 +81,6 @@ class SeekPolymarket():
                         }
             response = self.http_client.get('https://clob.polymarket.com/price',params=params)
             response.raise_for_status() 
-            # price_map = {token_id: round( 1.0/float(data['SELL']),4) for token_id, data in response.json().items()}
             return  float(response.json().get('price',None))
         except Exception as e:
             return float(0)
@@ -115,19 +112,12 @@ class SeekPolymarket():
         df['end_second'] = df['end_time'].apply(lambda x: (x-current_time).total_seconds())
         df['market_second'] = df.apply(lambda row: (row['end_time'] - row['start_time']).total_seconds(), axis=1)
 
-        # print(current_time)
-        # print(df[['start_time','end_time','end_second','market_second']])
-
-
-        # df = df[(df['end_second'] > 60) & (df['end_second'] < 300) & (df['market_second'] > (60*60*6))] #10分钟
         df = df[(df['end_second'] > self.settings.scan_befor_sec) & (df['end_second'] < self.settings.scan_after_sec) ] #最后3分钟
         if df.empty:
             self.logger.info("==>>无符合条件的数据")  
             return 
         
-        # df[['token-yes', 'token-no']] = df['clobTokenIds'].apply(lambda x: pd.Series(x) if isinstance(x, list) else pd.Series([None, None]))
         df['clobTokens'] = df['clobTokenIds'].apply(lambda x: json.loads(x) if isinstance(x, str) else x)
-
         df['event_slug'] = df['events'].apply(lambda x: x.get('slug') if isinstance(x, dict) else None)    
         df['event_id'] = df['events'].apply(lambda x: x.get('id') if isinstance(x, dict) else None)    
         df[['token-yes', 'token-no']] = df['clobTokens'].apply(lambda x: pd.Series([x[0], x[1]] if isinstance(x, list) and len(x) >= 2 else [None, None]))
@@ -137,11 +127,8 @@ class SeekPolymarket():
         df = df.reset_index(drop=True)
 
         df = df.drop(df[df['sportsMarketType'].notna()].index)
-        # df = df.drop(['events', 'outcomes', 'clobTokenIds','conditionId','slug'], axis=1)
         if df.empty:
             return
-        # df = df.drop(['events', 'outcomes', 'clobTokenIds','conditionId','slug'], axis=1)
-        # print(df)
         
         for index, row in df.iterrows():
             # 查询数据库id订单是否存在
@@ -150,6 +137,8 @@ class SeekPolymarket():
             conditionId=row["conditionId"]
             event_id=row['event_id']
             tags =  self.get_event_tags(event_id)
+            start_time_iso= row['start_time']
+            end_date_iso= row['end_time']
             if not any(tag in self.event_tags for tag in tags):
                 continue
             
@@ -164,68 +153,101 @@ class SeekPolymarket():
                 self.logger.warning(f"---------------------------------------------------")  
                 self.logger.warning(f"=========>> 价格满足，准备下单!{slug}   << ============")  
                 self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 UP最佳:{up_price}, DOWN最佳:{down_price}")
-                self.play_order(conditionId,token_id=row["token-yes"],price=up_price,size=self.settings.order_size)
+                self.play_order(conditionId,token_id=row["token-yes"],price=up_price,size=self.settings.order_size,slug=slug,start_time_iso=start_time_iso,end_date_iso=end_date_iso,symbol='UP')
             elif down_price > self.settings.price_min and down_price <= self.settings.price_max:
                 self.logger.warning(f" "*20)  
                 self.logger.warning(f"---------------------------------------------------")  
                 self.logger.warning(f"=========>> 价格满足，准备下单!{slug}   << ============")  
                 self.logger.warning(f"==>> 市场ID: {id}/【{slug} 】 DOWN最佳:{down_price}, UP最佳:{up_price}")
-                self.play_order(conditionId,token_id=row["token-no"],price=down_price,size=self.settings.order_size)
+                self.play_order(conditionId,token_id=row["token-no"],price=down_price,size=self.settings.order_size,slug=slug,start_time_iso=start_time_iso,end_date_iso=end_date_iso,symbol='DOWN')
             else:
                 self.logger.warning(f" "*20) 
                 self.logger.info(f"==>价格不满足，跳过!{slug}, DOWN:{down_price}, UP:{up_price}")   
                 continue    
-    def play_order(self,conditionId:str,token_id:str=None,price:float=None,size:float=None ):
-        trades= get_trades(self.settings,market=conditionId)     
-        if len(trades) != 0:
-            trade = trades[0]
-            self.logger.warning(f"==>> 交易记录存在：{trade['id']},{trade['side']},{trade['price']},{trade['size']},跳过下单")   
+    def get_benchmark_price(self, dt: datetime, slug: str) -> float:
+        try:
+            # 确保传入的时间是UTC时间
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            else:
+                dt = dt.astimezone(timezone.utc)
+            
+            slug_lower = slug.lower()
+            symbol_mapping = {
+                'btc': 'btcusdt',
+                'sol': 'solusdt', 
+                'xrp': 'xrpusdt',
+                'eth': 'ethusdt',
+                'bitcoin': 'btcusdt',
+                'ethereum': 'ethusdt',
+                'solana': 'solusdt',
+            }
+            matched_symbol = None
+            for prefix, symbol in symbol_mapping.items():
+                if slug_lower.startswith(prefix):
+                    matched_symbol = symbol
+                    break
+            
+            if not matched_symbol:
+                logger.warning(f"无法匹配slug: {slug} 到任何symbol")
+                return 0.0
+            
+            # 计算时间范围：dt的前一分钟（UTC时间）
+            one_minute_ago = dt - timedelta(minutes=1)
+            
+            sql = """
+                SELECT price, create_time_iso
+                FROM polymarket_crypto_price 
+                WHERE symbol = %s 
+                AND create_time_iso >= %s 
+                AND create_time_iso <= %s
+                ORDER BY id DESC
+                LIMIT 1
+            """
+            
+            params = (matched_symbol, one_minute_ago, dt)
+            result = self.dbHelper.select_one(sql, params)
+            
+            if result and 'price' in result and result['price'] is not None:
+                price = float(result['price'])
+                logger.debug(f"找到价格: {matched_symbol} = {price} (时间范围: {one_minute_ago} 到 {dt})")
+                return price
+            else:
+                logger.debug(f"在 {one_minute_ago} 到 {dt} (UTC) 范围内未找到 {matched_symbol} 的价格数据")
+                return 0.0    
+        except Exception as e:
+            logger.error(f"获取基准价格时出错: {e}")
+            return 0.0
+    def play_order(self,conditionId:str,token_id:str=None,price:float=None,size:float=None ,slug:str=None,start_time_iso:datetime=None,end_date_iso:datetime=None,symbol:str=None):
+        orders = self.dbHelper.execute_query("SELECT *  FROM polymarket_trades WHERE market_id=%s ", (conditionId,))
+        if len(orders) > 0:
+            self.logger.warning(f"==>> 交易记录存在：{slug},{conditionId},跳过下单")   
             return
-        curr_balance =get_balance(self.settings)
-
-        if curr_balance < self.settings.reserve_balance + self.settings.order_size:
-            self.logger.warning(f"===> ⚠️ 余额不足，当前余额: ${curr_balance:.6f},保留余额: ${self.settings.reserve_balance:.6f},跳过下单")
-            return
-        place_order(
-            self.settings,
-            side="BUY",
-            token_id=token_id,
-            price=float(price),
-            size=float(size),
-            tif="GTC",
-        )
+        utc = pytz.UTC
+        current_time_utc=datetime.now(utc)
+        current_time=datetime.now()
+        benchmark_price=self.get_benchmark_price(current_time_utc, slug)
+        db_data={
+                    'market_slug':slug,
+                    'market_id':conditionId,
+                    'token_id':token_id,
+                    'crypto_benchmark':benchmark_price,
+                    'buy_price':price,
+                    'size':size,
+                    'status':0,
+                    'symbol':symbol,
+                    'start_date_iso':start_time_iso,
+                    'end_date_iso':end_date_iso,
+                    'create_time_iso':current_time_utc,
+                    'create_time':current_time
+        }
+        self.dbHelper.insert_one("polymarket_trades", db_data) 
         self.logger.warning(f"===>提交订单:   {token_id}, ${price:.4f} x {size} shares")
 
     def run(self):
-
-
-        # place_order(
-        #     self.settings,
-        #     side="BUY",
-        #     token_id='67907923640754422536549983884687639959795729031667929337463354290420556044100',
-        #     price=float(0.05),
-        #     size=float(5),
-        #     tif="FAK",
-        # )
-        # return
-
-        # place_order(
-        #     self.settings,
-        #     side="BUY",
-        #     token_id='104663890405767427718480543493833762398617970079292208022284840939078090957432',
-        #     price=float(0.72),
-        #     size=float(2),
-        #     tif="GTC",
-        # )
         try:
 
-            curr_balance =get_balance(self.settings)
-            self.logger.info(f"   💰 当前余额: ${curr_balance:.6f},预留金额:{self.settings.reserve_balance}")
-
-            #   trades= get_trades(self.settings) market =>condition
-            #   self.trades = pd.DataFrame( trades,columns=['id','market','asset_id','side','size','price','status','outcome'])
             start_date, end_date = self.get_dates()
-            
             self.logger.info(f"==> 启动扫描,{start_date},{end_date}")   
             page=0
             limit =500 
@@ -245,7 +267,6 @@ class SeekPolymarket():
                 # 检查请求是否成功
                 if response.status_code == 200:
                     data = response.json()
-
                     columns = ['id', 'slug', 'startDate','eventStartTime','events','conditionId', 'endDate','clobTokenIds','outcomes','sportsMarketType']
                     df = pd.DataFrame(data,columns=columns)
                     lens=len(df)
@@ -259,26 +280,20 @@ class SeekPolymarket():
             self.logger.info(f"完整异常: {e.__class__.__name__}: {e}",exc_info=True)
                            
 if __name__ == "__main__":
-    logName= "scan-poly"
+    logName= "polymarket_simulate"
     settings = load_settings()
     runnerHelper=RunnerHelper() 
+    dbHelper = MySQLHelper()
     logConfig=runnerHelper.getLogConfig(logName)
     logging.config.dictConfig(logConfig)
     logger =  logging.getLogger(logName)
 
-    runner=SeekPolymarket(logger,settings) 
+    runner=SeekPolymarket(logger,settings,dbHelper) 
 
     # runner.run()
    
     scheduler = BlockingScheduler()
     Thread(target=runnerHelper.print_countdown, args=(scheduler,logger), daemon=True).start()
-    # scheduler.add_job(runner.run, 'cron', second='1,31',name='polymarket')
     scheduler.add_job(runner.run, 'interval', seconds=5, name=logName,next_run_time=datetime.now() )
-    # scheduler.add_job(runner.run, 'cron', second='1,31', name=logName)
     scheduler.start()
 
-
-
-
-# 记录余额不足的订单
-# 数字币价格差价变化

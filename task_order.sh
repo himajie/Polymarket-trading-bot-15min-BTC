@@ -13,7 +13,7 @@ start_app() {
     
     echo "启动应用..."
     # nohup python3 "$APP_DIR/scanner_mq.py" >> "$LOG_FILE" 2>&1 &
-    nohup python -m src.polymarket > /dev/null 2>&1 &
+    nohup python -m src.polymarket_simulate > /dev/null 2>&1 &
     echo $! > "$PID_FILE"
     echo "应用已启动 (PID: $(cat $PID_FILE))"
 }
